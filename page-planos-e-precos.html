@@ -255,6 +255,38 @@
     .person strong { display: block; font-size: 14px; color: var(--navy); }
     .person span { display: block; color: var(--muted); font-size: 12px; }
 
+    /* Pop-up amigável WhatsApp Voz */
+    .voz-popup {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 90;
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 16px;
+      width: min(440px, calc(100vw - 32px));
+      border: 1px solid rgba(37,44,59,.08);
+      border-radius: 18px;
+      padding: 18px;
+      background: #fff;
+      box-shadow: 0 24px 60px rgba(37,44,59,.24);
+      opacity: 0;
+      transform: translateY(24px);
+      pointer-events: none;
+      transition: opacity .45s ease, transform .45s ease;
+    }
+    .voz-popup.visible { opacity: 1; transform: none; pointer-events: auto; }
+    .voz-popup-media { overflow: hidden; border-radius: 12px; background: #0b141a; }
+    .voz-popup-media img { width: 100%; height: 100%; object-fit: cover; }
+    .voz-popup-close { position: absolute; top: 10px; right: 10px; display: grid; place-items: center; width: 26px; height: 26px; border: 0; border-radius: 50%; background: var(--green-chip); color: var(--green-dark); font-size: 13px; font-weight: 700; cursor: pointer; }
+    .voz-popup-close:hover { background: var(--green-mint); }
+    .voz-popup-tag { display: inline-flex; align-items: center; gap: 7px; margin-bottom: 8px; color: var(--navy); font-size: 13px; font-weight: 700; }
+    .voz-popup-tag img { width: 18px; height: 18px; }
+    .voz-popup h3 { margin: 0 22px 8px 0; font-size: 15px; font-weight: 700; line-height: 1.35; color: var(--ink); }
+    .voz-popup h3 em { color: var(--green-vivid); font-style: normal; }
+    .voz-popup p { margin: 0 0 12px; color: var(--muted); font-size: 12.5px; }
+    .voz-popup .btn { min-height: 38px; padding: 8px 18px; font-size: 13px; }
+
     /* Footer */
     .site-footer { padding: 70px 0 0; background: #f2f4f6; color: var(--navy); }
     .footer-grid { display: grid; grid-template-columns: 1.25fr 1fr 1fr .95fr .75fr; gap: 40px; padding-bottom: 64px; }
@@ -542,6 +574,17 @@
     </section>
   </main>
 
+  <aside class="voz-popup" id="voz-popup" role="dialog" aria-label="Conheça o WhatsApp Voz">
+    <button class="voz-popup-close" type="button" aria-label="Fechar aviso">✕</button>
+    <div class="voz-popup-media"><img src="assets/whatsapp-voz.gif" alt="Demonstração do WhatsApp Voz no celular"></div>
+    <div>
+      <span class="voz-popup-tag"><img src="assets/icon-whatsapp.svg" alt="" aria-hidden="true"> WhatsApp Voz</span>
+      <h3>Ligue para seu cliente pelo <em>WhatsApp sem sair da plataforma</em></h3>
+      <p>Com o WhatsApp Voz, seus agentes realizam chamadas de voz diretamente pelo canal oficial do WhatsApp, tudo integrado à plataforma, com registro completo e controle total.</p>
+      <a class="btn btn-vivid" href="https://neppo.com.br/neppo-voz/#form" target="_blank" rel="noopener">Ver como funciona</a>
+    </div>
+  </aside>
+
   <footer class="site-footer" id="contato">
     <div class="container">
       <div class="footer-grid">
@@ -626,6 +669,16 @@
         document.getElementById(tab.dataset.mtab).classList.add('active');
       });
     });
+
+    // Pop-up amigável do WhatsApp Voz: aparece uma vez por sessão, sem bloquear a página.
+    const vozPopup = document.getElementById('voz-popup');
+    if (vozPopup && !sessionStorage.getItem('vozPopupFechado')) {
+      setTimeout(() => vozPopup.classList.add('visible'), 5000);
+      vozPopup.querySelector('.voz-popup-close').addEventListener('click', () => {
+        vozPopup.classList.remove('visible');
+        sessionStorage.setItem('vozPopupFechado', '1');
+      });
+    }
   </script>
 </body>
 </html>
