@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Planos e Preços | Neppo</title>
+  <meta name="description" content="Descubra o plano ideal da Neppo para a sua empresa: Flex, Flex IA e Enterprise, com usuários ilimitados, chatbots avançados e todos os canais em um só lugar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Unbounded:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #65cc65;
+      --green-vivid: #02cd5d;
+      --green-dark: #168247;
+      --green-soft: #eef8ee;
+      --green-mint: #dcf6e2;
+      --green-chip: #e9f7eb;
+      --purple: #8a20b5;
+      --purple-deep: #7901ac;
+      --navy: #252c3b;
+      --ink: #1e232f;
+      --muted: #69756f;
+      --line: #dfe9df;
+      --paper: #fffefa;
+      --white: #fff;
+      --radius-sm: 10px;
+      --radius: 16px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 8px 24px rgba(37, 44, 59, .07);
+      --shadow-lg: 0 24px 60px rgba(37, 44, 59, .13);
+      --transition: .25s ease;
+      --font-display: "Unbounded", "Outfit", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Outfit", system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.menu-open { overflow: hidden; }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button { color: inherit; }
+    h1, h2, h3, p { margin-top: 0; }
+    .container { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+    .section { padding: 104px 0; }
+    .eyebrow {
+      margin-bottom: 14px;
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      max-width: 760px;
+      margin-bottom: 18px;
+      font-family: var(--font-display);
+      font-size: clamp(24px, 2.4vw, 38px);
+      font-weight: 400;
+      letter-spacing: -.05em;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+    .section-title em { color: var(--green-vivid); font-style: normal; }
+    .section-copy { max-width: 670px; margin-bottom: 0; color: var(--muted); font-size: 17px; }
+    .section-head { margin-bottom: 50px; }
+    .section-head.center { text-align: center; }
+    .section-head.center .section-title,
+    .section-head.center .section-copy { margin-inline: auto; }
+    .btn {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 12px 22px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:focus-visible, .faq-button:focus-visible, .main-nav a:focus-visible, .menu-toggle:focus-visible {
+      outline: 3px solid rgba(22, 130, 71, .34);
+      outline-offset: 3px;
+    }
+    .btn-primary { background: var(--green-dark); color: var(--white); box-shadow: 0 8px 22px rgba(22, 130, 71, .2); }
+    .btn-primary:hover { background: #116c3b; box-shadow: 0 12px 28px rgba(22, 130, 71, .28); }
+    .btn-vivid { background: var(--green-vivid); color: var(--white); }
+    .btn-vivid:hover { background: #02b552; }
+    .btn-purple { background: var(--purple); color: var(--white); }
+    .btn-purple:hover { background: var(--purple-deep); }
+    .btn-ghost-green { border-color: var(--green-dark); background: transparent; color: var(--green-dark); }
+    .btn-ghost-green:hover { background: var(--green-chip); }
+    .btn-outline-white { border-color: rgba(255,255,255,.85); background: transparent; color: #fff; }
+    .btn-outline-white:hover { background: rgba(255,255,255,.12); }
+
+    .divider { position: absolute; left: 0; z-index: 2; width: 100%; height: auto; pointer-events: none; }
+    .divider.top { top: -1px; }
+    .divider.bottom { bottom: -1px; }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(37,44,59,.07);
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(16px);
+    }
+    .header-inner { height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 26px; }
+    .brand img { width: 132px; height: auto; }
+    .main-nav { display: flex; align-items: center; gap: 28px; margin-left: auto; }
+    .main-nav a { position: relative; color: var(--navy); font-size: 14px; font-weight: 500; }
+    .main-nav a .caret { margin-left: 4px; font-size: 10px; color: var(--navy); }
+    .main-nav a:not(.btn)::after { content: ""; position: absolute; right: 0; bottom: -7px; left: 0; height: 2px; transform: scaleX(0); background: var(--green-vivid); transition: transform var(--transition); }
+    .main-nav a:hover::after { transform: scaleX(1); }
+    .main-nav .mobile-action { display: none; }
+    .header-actions { display: flex; align-items: center; gap: 12px; }
+    .header-actions .btn { min-height: 38px; padding: 9px 20px; font-size: 13px; }
+    .menu-toggle { display: none; width: 42px; height: 42px; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 50%; background: var(--white); cursor: pointer; }
+    .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after { display: block; width: 18px; height: 2px; border-radius: 2px; background: var(--ink); transition: var(--transition); }
+    .menu-toggle span { position: relative; }
+    .menu-toggle span::before, .menu-toggle span::after { content: ""; position: absolute; left: 0; }
+    .menu-toggle span::before { top: -6px; }
+    .menu-toggle span::after { top: 6px; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 80px 0 70px;
+      background: linear-gradient(180deg, #f1ffef 0%, #fff 100%);
+      text-align: center;
+    }
+    .hero h1 {
+      max-width: 720px;
+      margin: 0 auto 20px;
+      font-family: var(--font-display);
+      font-size: clamp(28px, 2.6vw, 46px);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -.05em;
+      color: var(--ink);
+    }
+    .hero h1 em { color: var(--green); font-style: normal; }
+    .hero-copy { max-width: 620px; margin: 0 auto 30px; color: var(--muted); font-size: 17px; }
+
+    /* Planos */
+    .plans { padding: 70px 0 90px; }
+    .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+    .plan-card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(37,44,59,.08);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+    .plan-card.featured { border: 2px solid var(--green-vivid); box-shadow: var(--shadow-lg); }
+    .plan-badge { align-self: flex-start; margin-bottom: 14px; border-radius: 999px; padding: 5px 12px; background: var(--green-chip); color: var(--green-dark); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .plan-card h2 { margin-bottom: 8px; font-family: var(--font-display); font-size: 22px; font-weight: 400; letter-spacing: -.03em; color: var(--ink); }
+    .plan-desc { min-height: 66px; margin-bottom: 18px; color: var(--muted); font-size: 13px; }
+    .plan-price { margin-bottom: 4px; font-family: var(--font-display); font-size: clamp(26px, 2.2vw, 34px); font-weight: 500; letter-spacing: -.03em; color: var(--green-dark); }
+    .plan-price small { font-family: "Outfit", sans-serif; font-size: 13px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+    .plan-volume { margin-bottom: 4px; color: var(--navy); font-size: 13px; font-weight: 600; }
+    .plan-note { margin-bottom: 20px; color: #a2ada5; font-size: 11px; }
+    .plan-list-title { margin-bottom: 12px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--navy); font-size: 13px; font-weight: 700; }
+    .check-list { display: flex; flex-direction: column; gap: 11px; margin: 0 0 28px; padding: 0; list-style: none; }
+    .check-list li { position: relative; padding-left: 25px; color: var(--muted); font-size: 13px; }
+    .check-list li::before { content: "✓"; position: absolute; top: 0; left: 0; color: var(--green-dark); font-weight: 700; }
+    .plan-card .btn { margin-top: auto; width: 100%; }
+
+    /* Mini benefícios */
+    .mini-benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 54px; }
+    .mini-benefit { display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: #fff; }
+    .mini-icon { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; background: var(--green-chip); color: var(--green-dark); font-size: 16px; }
+    .mini-benefit strong { display: block; margin-bottom: 4px; color: var(--navy); font-size: 14px; }
+    .mini-benefit span { color: var(--muted); font-size: 12px; }
+
+    /* Módulos adicionais */
+    .modules { position: relative; padding: calc(4.4vw + 76px) 0 calc(4.4vw + 86px); background: var(--green-soft); }
+    .module-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 46px; }
+    .module-pills span { border: 1px solid #4bbf4b; border-radius: 999px; padding: 8px 18px; background: #82ff82; color: var(--navy); font-size: 13px; font-weight: 500; }
+    .module-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .module-card { border: 1px solid rgba(37,44,59,.06); border-radius: var(--radius); padding: 26px; background: #fff; box-shadow: 0 6px 20px rgba(37,44,59,.04); }
+    .module-card h3 { margin-bottom: 8px; font-size: 16px; font-weight: 700; line-height: 1.3; color: var(--navy); }
+    .module-card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .micro-cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 54px; border-radius: var(--radius); padding: 24px 28px; background: var(--green-mint); }
+    .micro-cta h3 { margin: 0 0 4px; font-size: 18px; color: var(--navy); }
+    .micro-cta p { margin: 0; color: var(--muted); font-size: 12px; }
+
+    /* Além do básico */
+    .beyond-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .beyond-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; background: #fff; }
+    .beyond-card h3 { margin-bottom: 8px; font-size: 18px; font-weight: 700; line-height: 1.3; color: var(--navy); }
+    .beyond-card .lead { margin-bottom: 16px; color: var(--muted); font-size: 13px; }
+    .beyond-card .check-list { margin-bottom: 22px; }
+    .beyond-card .btn { margin-top: auto; align-self: flex-start; }
+
+    /* Meta partner (navy) */
+    .meta-strip { position: relative; padding: calc(4.4vw + 76px) 0 calc(4.4vw + 86px); background: var(--navy); text-align: center; }
+    .meta-strip .section-title { color: #fff; margin-inline: auto; }
+    .meta-strip .section-copy { color: rgba(255,255,255,.82); margin: 0 auto 30px; }
+
+    /* Resultados */
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; }
+    .stat strong {
+      display: block;
+      margin-bottom: 12px;
+      font-family: var(--font-display);
+      font-size: clamp(44px, 4.4vw, 72px);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -.04em;
+      color: var(--green-vivid);
+    }
+    .stat span { color: var(--muted); font-size: 15px; }
+
+    /* Depoimentos */
+    .testimonials { position: relative; padding: calc(4.4vw + 76px) 0 104px; background: var(--green-soft); }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .quote-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 22px;
+      border-top: 3px solid var(--green);
+      border-radius: 12px;
+      padding: 28px;
+      background: #fff;
+      box-shadow: 0 14px 34px rgba(37,44,59,.08);
+    }
+    .quote-card blockquote { margin: 0; font-size: 14px; font-weight: 500; line-height: 1.7; color: #3f4653; }
+    .quote-card blockquote::before { content: "“"; margin-right: 2px; color: var(--green); font-size: 24px; font-weight: 700; line-height: 0; vertical-align: -5px; }
+    .person strong { display: block; font-size: 14px; color: var(--navy); }
+    .person span { display: block; color: var(--muted); font-size: 12px; }
+
+    /* Footer */
+    .site-footer { padding: 70px 0 0; background: #f2f4f6; color: var(--navy); }
+    .footer-grid { display: grid; grid-template-columns: 1.25fr 1fr 1fr .95fr .75fr; gap: 40px; padding-bottom: 64px; }
+    .footer-brand img.footer-logo { width: 184px; height: auto; margin-bottom: 42px; }
+    .contact-row { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; font-size: 14px; color: var(--navy); }
+    .contact-row img { width: 18px; height: 18px; }
+    .footer-col h3 { margin: 6px 0 28px; color: var(--green-vivid); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .footer-col a { display: block; margin-bottom: 12px; color: #575d68; font-size: 13px; }
+    .footer-col a:hover { color: var(--green-dark); }
+    .footer-bar { background: var(--purple-deep); color: #fff; }
+    .footer-bar-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 50px; padding: 10px 0; font-size: 12px; }
+    .social { display: flex; gap: 22px; }
+    .social img { width: 19px; height: 19px; }
+
+    @media (max-width: 980px) {
+      .main-nav { display: none; }
+      .header-actions .btn-purple { display: none; }
+      .menu-toggle { display: flex; }
+      .main-nav.open { position: fixed; inset: 66px 0 auto; display: flex; flex-direction: column; align-items: stretch; gap: 0; border-bottom: 1px solid var(--line); padding: 18px 24px 28px; background: #fff; box-shadow: var(--shadow-sm); }
+      .main-nav.open a { padding: 14px 0; font-size: 16px; }
+      .main-nav.open .mobile-action { display: inline-flex; margin-top: 10px; color: #fff; }
+      .plans-grid, .mini-benefits, .module-grid, .beyond-grid, .testimonial-grid { grid-template-columns: 1fr; }
+      .plan-desc { min-height: 0; }
+      .stats-grid { grid-template-columns: 1fr; gap: 42px; }
+      .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .container { width: min(100% - 32px, 1160px); }
+      .section { padding: 76px 0; }
+      .header-actions .btn-vivid { display: none; }
+      .hero { padding: 56px 0; }
+      .micro-cta { align-items: flex-start; flex-direction: column; }
+      .micro-cta .btn { width: 100%; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bar-inner { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Neppo - página inicial"><img src="assets/logo-header.png" alt="Neppo" width="132" height="34"></a>
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+        <a href="index.html#solucoes">Soluções <span class="caret" aria-hidden="true">▾</span></a>
+        <a href="page-planos-e-precos.html">Planos e Preços</a>
+        <a href="index.html#conteudos">Integrações <span class="caret" aria-hidden="true">▾</span></a>
+        <a href="#" data-link-pendente="parcerias">Parcerias</a>
+        <a href="#" data-link-pendente="conteudos-blog">Conteúdos <span class="caret" aria-hidden="true">▾</span></a>
+        <a href="index.html#contato">Contato</a>
+        <a class="btn btn-vivid mobile-action" href="page-demonstracao.html#form">Contrate Agora!</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-purple" href="page-demo.html">Ver Demonstração</a>
+        <a class="btn btn-vivid" href="page-demonstracao.html#form">Contrate Agora!</a>
+        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="main-nav" aria-expanded="false"><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Descubra o <em>plano ideal</em> para usar na sua empresa 👍</h1>
+        <p class="hero-copy">A hora de transformar seu atendimento e automatizar as suas vendas é agora! Os novos pacotes Neppo já estão em vigor, consulte os valores atualizados e os serviços disponíveis.</p>
+        <a class="btn btn-primary" href="#planos">Saiba mais sobre os planos</a>
+      </div>
+    </section>
+
+    <section class="plans" id="planos">
+      <div class="container">
+        <div class="plans-grid">
+          <article class="plan-card">
+            <h2>Flex</h2>
+            <p class="plan-desc">Ideal para empresas que desejam se comprometer por um prazo mais longo e receber descontos</p>
+            <p class="plan-price">R$ 1.790,00 <small>por mês</small></p>
+            <p class="plan-volume">Volume de atendimentos: 1.000 atendimentos</p>
+            <p class="plan-note">*valores sujeitos a alteração sem aviso prévio</p>
+            <p class="plan-list-title">O que está incluso:</p>
+            <ul class="check-list">
+              <li>Usuários ilimitados</li>
+              <li>Chatbots avançados</li>
+              <li>Suporte exclusivo</li>
+              <li>Dashboard e relatórios de atendimento</li>
+              <li>Campanhas em massa pelo WhatsApp</li>
+              <li>Armazenamento por 5 anos</li>
+              <li>Canais: E-mail, WhatsApp API, Webchat, Messenger e Instagram</li>
+            </ul>
+            <a class="btn btn-ghost-green" href="page-demonstracao.html#form">Falar com especialista</a>
+          </article>
+
+          <article class="plan-card featured">
+            <span class="plan-badge">Com IA</span>
+            <h2>Flex IA</h2>
+            <p class="plan-desc">Para empresas que desejam se comprometer por um prazo mais longo e com benefícios da IA.</p>
+            <p class="plan-price">R$ 2.450,00 <small>por mês</small></p>
+            <p class="plan-volume">Volume de atendimentos: 1.000 atendimentos</p>
+            <p class="plan-note">*valores sujeitos a alteração sem aviso prévio</p>
+            <p class="plan-list-title">O que está incluso:</p>
+            <ul class="check-list">
+              <li>Usuários ilimitados</li>
+              <li>Chatbots avançados</li>
+              <li>Suporte exclusivo</li>
+              <li>Dashboard e relatórios de atendimento</li>
+              <li>Campanhas em massa pelo WhatsApp</li>
+              <li>Armazenamento por 5 anos</li>
+              <li>Canais: E-mail, WhatsApp API, Webchat, Messenger e Instagram</li>
+            </ul>
+            <a class="btn btn-primary" href="page-demonstracao.html#form">Falar com especialista</a>
+          </article>
+
+          <article class="plan-card">
+            <h2>Enterprise</h2>
+            <p class="plan-desc">Gestão de grandes volumes de conversas. Personalizado para a sua empresa</p>
+            <p class="plan-price">Valor sob consulta</p>
+            <p class="plan-note">&nbsp;</p>
+            <p class="plan-list-title">O que está incluso:</p>
+            <ul class="check-list">
+              <li>Usuários ilimitados</li>
+              <li>Chatbots avançados</li>
+              <li>Suporte exclusivo</li>
+              <li>Dashboard e relatórios de atendimento</li>
+              <li>Campanhas em massa pelo WhatsApp</li>
+              <li>Armazenamento por 5 anos</li>
+              <li>Canais: E-mail, WhatsApp API, Webchat, Messenger e Instagram</li>
+            </ul>
+            <a class="btn btn-ghost-green" href="page-demonstracao.html#form">Falar com especialista</a>
+          </article>
+        </div>
+
+        <div class="mini-benefits">
+          <div class="mini-benefit"><span class="mini-icon">◈</span><span><strong>Custo sob medida</strong><span>Mais transparência e controle dos custos</span></span></div>
+          <div class="mini-benefit"><span class="mini-icon">⌁</span><span><strong>Integrações para seu negócio</strong><span>API aberta para conectar com ERP, CRM e qualquer sistema</span></span></div>
+          <div class="mini-benefit"><span class="mini-icon">⌘</span><span><strong>Atendimento com IA</strong><span>Automatize fluxos e reduza custos operacionais</span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="modules">
+      <img class="divider top" src="assets/divisoria-sec-1.svg" alt="" aria-hidden="true">
+      <img class="divider bottom" src="assets/divisoria-7.svg" alt="" aria-hidden="true">
+      <div class="container">
+        <div class="section-head center"><p class="eyebrow">Módulos adicionais</p><h2 class="section-title">Potencialize ainda mais seus resultados com os módulos adicionais da Neppo</h2><p class="section-copy">Expanda sua operação com soluções que vão além do omnichannel, trazendo mais eficiência e resultados</p></div>
+        <div class="module-pills">
+          <span>Neppo Voz</span><span>Neppo Ticket</span><span>Neppo Grow</span><span>WhatsApp Voz</span><span>Chat Embarcado</span><span>Studio CX</span>
+        </div>
+        <div class="module-grid">
+          <article class="module-card"><h3>Atenda de qualquer lugar</h3><p>O número empresarial do seu negócio no celular ou no computador</p></article>
+          <article class="module-card"><h3>Corte custos com telefonia tradicional</h3><p>Ligações VoIP reduzem despesas com operadoras</p></article>
+          <article class="module-card"><h3>Atendimento integrado</h3><p>VoIP + WhatsApp + Chatbot para um fluxo de comunicação completo</p></article>
+          <article class="module-card"><h3>Atendimento ágil</h3><p>Elimine filas de espera e garanta um atendimento rápido e fluído para seus clientes</p></article>
+          <article class="module-card"><h3>Empresas com filiais e times remotos</h3><p>Ideal para empresas com filiais ou times remotos, proporcionando comunicação integrada</p></article>
+          <article class="module-card"><h3>Inteligência aplicada ao atendimento</h3><p>Acesse dados estratégicos para otimizar chamadas, melhorar a performance do time e tomar decisões mais assertivas</p></article>
+        </div>
+        <div class="micro-cta">
+          <div><h3>Ainda não sabe qual plano escolher?</h3><p>Faça seu diagnóstico em minutos e descubra qual plano da Neppo se encaixa melhor no seu negócio</p></div>
+          <a class="btn btn-primary" href="https://neppo.com.br/checklist-maturidade-digital/">Fazer diagnóstico</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head center"><h2 class="section-title">A Neppo vai além do básico</h2><p class="section-copy">Tudo o que você precisa para transformar atendimento em resultado em um só lugar</p></div>
+        <div class="beyond-grid">
+          <article class="beyond-card">
+            <h3>Integre todas as plataformas com seu atendimento</h3>
+            <p class="lead">Conecte a Neppo ao que já faz parte do seu negócio.</p>
+            <ul class="check-list">
+              <li>API aberta para ERP, CRM e sistemas próprios</li>
+              <li>Integração nativa com Sankhya ERP</li>
+              <li>Flexibilidade para personalizar fluxos e automações</li>
+            </ul>
+            <a class="btn btn-ghost-green" href="index.html#conteudos">Saber mais</a>
+          </article>
+          <article class="beyond-card">
+            <h3>Canal de Voz e Omnichannel</h3>
+            <p class="lead">Tudo em um só lugar: WhatsApp, chat, e-mail e voz integrados.</p>
+            <ul class="check-list">
+              <li>PABX Virtual (Neppo Voz) conectado à plataforma</li>
+              <li>Tickets com histórico centralizado</li>
+              <li>Usuários ilimitados e escalabilidade para sua operação</li>
+            </ul>
+            <a class="btn btn-ghost-green" href="index.html#conteudos">Saber mais</a>
+          </article>
+          <article class="beyond-card">
+            <h3>Aplique inteligência artificial com estratégia</h3>
+            <p class="lead">Conecte a Neppo ao que já faz parte do seu negócio.</p>
+            <ul class="check-list">
+              <li>Agente de receita para aumento das vendas através de automação e cobranças inteligentes</li>
+              <li>Automação em tickets, voz e chat</li>
+              <li>Redução de custos operacionais com maior produtividade</li>
+            </ul>
+            <a class="btn btn-ghost-green" href="index.html#conteudos">Saber mais</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="meta-strip">
+      <img class="divider top" src="assets/divisoria-sec-1.svg" alt="" aria-hidden="true">
+      <img class="divider bottom" src="assets/divisoria-7.svg" alt="" aria-hidden="true">
+      <div class="container">
+        <h2 class="section-title">Somos parceiros da Meta e tech provider do WhatsApp Business API</h2>
+        <p class="section-copy">Isso significa que somos autorizados pela Meta a comercializar o WhatsApp Business API, oferecendo soluções que conectam sua marca aos melhores canais de comunicação.</p>
+        <a class="btn btn-vivid" href="page-demo.html">Ver Demonstrações</a>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Resultados de clientes Neppo">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow">Resultados</p><h2 class="section-title">Resultados que mostram o poder do atendimento inteligente</h2><p class="section-copy">Empresas de diferentes segmentos já estão transformando seu atendimento e suas vendas com a Neppo</p></div>
+        <div class="stats-grid">
+          <div class="stat"><strong>+400%</strong><span>De crescimento no volume de atendimentos absorvido pela operação.</span></div>
+          <div class="stat"><strong>47%</strong><span>Menos reclamações registradas no primeiro trimestre após a implantação.</span></div>
+          <div class="stat"><strong>30 mil</strong><span>Protocolos por ano gerenciados por um único cliente Neppo.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <img class="divider top" src="assets/divisoria-sec-1.svg" alt="" aria-hidden="true">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow">Cases de sucesso</p><h2 class="section-title">Tem resultado que só cliente Neppo alcança</h2><p class="section-copy">Conheça alguns cases de sucesso:</p></div>
+        <div class="testimonial-grid">
+          <article class="quote-card"><blockquote>Tivemos um crescimento de mais de 400% de atendimentos e a Neppo foi um parceiro importante auxiliando nas ações de cobrança que ajudaram na diminuição de 30% de inadimplência.</blockquote><div class="person"><strong>Rafaela Gonzalez</strong><span>Experiência do cliente</span></div></article>
+          <article class="quote-card"><blockquote>O sucesso da ferramenta é inquestionável. Garantimos a diminuição de 47% no número de reclamações registradas no primeiro trimestre desse ano, em relação a 2023.</blockquote><div class="person"><strong>Laudiceia Moura</strong><span>Relacionamento com cliente</span></div></article>
+          <article class="quote-card"><blockquote>Estamos completando um ano de parceria com a Neppo. Conseguimos automatizar nosso atendimento via WhatsApp, melhorar o controle de ligações e centralizar todas as informações em uma única base.</blockquote><div class="person"><strong>Matheus Melo</strong><span>Gerente de Tecnologia</span></div></article>
+          <article class="quote-card"><blockquote>Hoje o nosso atendimento é todo centralizado pela Neppo, seja a equipe de Vendas, SAC, Produtos, Entregas… De gerentes a agentes.</blockquote><div class="person"><strong>Lívia Nunes</strong><span>Gestora central de relacionamento</span></div></article>
+          <article class="quote-card"><blockquote>Nosso objetivo é sempre trabalhar em parceria com os clientes, oferecendo transparência e soluções que realmente atendam às suas necessidades.</blockquote><div class="person"><strong>Renato Magalhães</strong><span>Gerente de tecnologia</span></div></article>
+          <article class="quote-card"><blockquote>Com a Neppo, transformamos nosso atendimento, alcançando uma velocidade e produtividade enormes ao lidar com um volume muito maior de clientes.</blockquote><div class="person"><strong>Wendell Almeida</strong><span>Sócio/Proprietário</span></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contato">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img class="footer-logo" src="assets/logo-footer.png" alt="Neppo by Sankhya" width="184" height="47">
+          <div class="contact-row"><img src="assets/icon-whatsapp.svg" alt="" aria-hidden="true"><span>(34) 3256-3200</span></div>
+          <div class="contact-row"><img src="assets/icon-mail.svg" alt="" aria-hidden="true"><span>comercial@neppo.com.br</span></div>
+          <div class="contact-row"><img src="assets/icon-pin.svg" alt="" aria-hidden="true"><span>Av. Floriano Peixoto n°1615</span></div>
+        </div>
+        <div class="footer-col">
+          <h3>Soluções</h3>
+          <a href="index.html#conteudos">WhatsApp API Oficial</a>
+          <a href="index.html#conteudos">Telegram</a>
+          <a href="index.html#conteudos">Facebook Messenger</a>
+          <a href="index.html#conteudos">Instagram</a>
+          <a href="index.html#conteudos">E-mail</a>
+          <a href="index.html#conteudos">Neppo SMS</a>
+          <a href="index.html#conteudos">Chatbot</a>
+          <a href="index.html#conteudos">Omnichannel</a>
+          <a href="index.html#conteudos">Web Chat</a>
+          <a href="index.html#conteudos">Chat Interno</a>
+          <a href="index.html#conteudos">Neppo Voz</a>
+          <a href="index.html#conteudos">Neppo Ticket</a>
+          <a href="index.html#conteudos">Neppo Grow</a>
+          <a href="index.html#conteudos">WhatsApp Voz</a>
+        </div>
+        <div class="footer-col">
+          <h3>A Neppo</h3>
+          <a href="index.html#inicio">Quem somos</a>
+          <a href="page-planos-e-precos.html">Planos e Preços</a>
+          <a href="#" data-link-pendente="parcerias">Parcerias</a>
+          <a href="page-demonstracao.html">Demonstração</a>
+          <a href="#" data-link-pendente="termos">Termos de Uso</a>
+          <a href="#" data-link-pendente="privacidade">Política de Privacidade</a>
+          <a href="#" data-link-pendente="status">Status Page Serviços Neppo</a>
+        </div>
+        <div class="footer-col">
+          <h3>Conteúdos</h3>
+          <a href="#" data-link-pendente="blog">Blog</a>
+          <a href="#" data-link-pendente="materiais">Materiais Ricos</a>
+          <a href="index.html#clientes">Cases de Sucesso</a>
+        </div>
+        <div class="footer-col">
+          <h3>Contato</h3>
+          <a href="index.html#faq">Central de Ajuda</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="container footer-bar-inner">
+        <span>Copyright © 2026 Neppo | Todos os direitos reservados.</span>
+        <div class="social">
+          <a href="#" aria-label="Instagram"><img src="assets/icon-instagram.svg" alt=""></a>
+          <a href="#" aria-label="LinkedIn"><img src="assets/icon-linkedin.svg" alt=""></a>
+          <a href="#" aria-label="YouTube"><img src="assets/icon-youtube.svg" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.main-nav');
+    menuButton.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      document.body.classList.toggle('menu-open', open);
+    });
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+    }));
+  </script>
+</body>
+</html>
