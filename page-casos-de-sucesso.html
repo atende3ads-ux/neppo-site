@@ -204,7 +204,8 @@
       transition: transform var(--transition), box-shadow var(--transition);
     }
     .case-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-    .case-tag { align-self: flex-start; margin-bottom: 16px; border-radius: 999px; padding: 5px 12px; background: var(--green-chip); color: var(--green-dark); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .case-logo { display: flex; align-items: center; height: 52px; margin-bottom: 18px; }
+    .case-logo img { max-height: 52px; width: auto; max-width: 180px; object-fit: contain; }
     .case-card h3 { margin-bottom: 10px; font-family: var(--font-display); font-size: 19px; font-weight: 400; letter-spacing: -.02em; color: var(--ink); }
     .case-card p { margin: 0 0 24px; color: var(--muted); font-size: 14px; }
     .case-card .btn { margin-top: auto; align-self: flex-start; }
@@ -321,16 +322,16 @@
 
     <section class="cases" id="cases">
       <img class="divider top" src="assets/divisoria-sec-1.svg" alt="" aria-hidden="true">
-      <img class="divider bottom" src="assets/divisoria-7.svg" alt="" aria-hidden="true">
+      <img class="divider bottom" src="assets/divisoria-5.svg" alt="" aria-hidden="true">
       <div class="container">
         <div class="section-head center"><p class="eyebrow">Ganhos reais</p><h2 class="section-title">Uma solução, diversos resultados: conheça os ganhos reais dos clientes Neppo</h2></div>
         <div class="case-grid">
-          <article class="case-card"><span class="case-tag">Editora</span><h3>Edições CNBB</h3><p>A centralização dos canais de comunicação auxiliou a Edições CNBB a alcançar resultados importantes para seus lançamentos sazonais.</p><a class="btn btn-ghost-green" href="https://neppo.com.br/case-edicoes-cnbb/" target="_blank" rel="noopener">Case completo</a></article>
-          <article class="case-card"><span class="case-tag">Saúde</span><h3>Uniodonto</h3><p>A Uniodonto transformou o próprio atendimento centralizando os canais de comunicação e enviando pesquisa NPS.</p><a class="btn btn-ghost-green" href="https://neppo.com.br/case-uniodonto/" target="_blank" rel="noopener">Case completo</a></article>
-          <article class="case-card"><span class="case-tag">Saúde</span><h3>Prevenir Assistencial</h3><p>A centralização dos canais de comunicação, inclusive de voz, e a automação de atendimento pelo WhatsApp transformaram a gestão da comunicação da Prevenir Assistencial.</p><a class="btn btn-ghost-green" href="https://neppo.com.br/case-prevenir-assistencial/" target="_blank" rel="noopener">Case completo</a></article>
-          <article class="case-card"><span class="case-tag">Indústria</span><h3>Junco</h3><p>Com a integração dos canais de comunicação da Junco, os agentes passaram a ter melhor desempenho nas atividades individuais.</p><a class="btn btn-ghost-green" href="https://neppo.com.br/case-junco/" target="_blank" rel="noopener">Case completo</a></article>
-          <article class="case-card"><span class="case-tag">Logística</span><h3>Rec Transportes</h3><p>Como a Rec Transportes consolidou sua posição de destaque no mercado, atendendo aproximadamente 6.700 pontos de entrega em 750 municípios.</p><a class="btn btn-ghost-green" href="https://neppo.com.br/case-rec-transportes/" target="_blank" rel="noopener">Case completo</a></article>
-          <article class="case-card"><span class="case-tag">Varejo</span><h3>Loja Doce</h3><p>A comunicação digital trouxe uma transformação imediata, proporcionando grande velocidade e produtividade no atendimento ao cliente, mesmo com um mix de produtos com mais de 30.000 itens.</p><a class="btn btn-ghost-green" href="https://neppo.com.br/case-loja-doce/" target="_blank" rel="noopener">Case completo</a></article>
+          <article class="case-card"><div class="case-logo"><img src="assets/case-cnbb.png" alt="Edições CNBB"></div><h3>Edições CNBB</h3><p>A centralização dos canais de comunicação auxiliou a Edições CNBB a alcançar resultados importantes para seus lançamentos sazonais.</p><a class="btn btn-ghost-green" href="https://neppo.com.br/case-edicoes-cnbb/" target="_blank" rel="noopener">Case completo</a></article>
+          <article class="case-card"><div class="case-logo"><img src="assets/case-uniodonto.png" alt="Uniodonto"></div><h3>Uniodonto</h3><p>A Uniodonto transformou o próprio atendimento centralizando os canais de comunicação e enviando pesquisa NPS.</p><a class="btn btn-ghost-green" href="https://neppo.com.br/case-uniodonto/" target="_blank" rel="noopener">Case completo</a></article>
+          <article class="case-card"><div class="case-logo"><img src="assets/case-prevenir.png" alt="Prevenir Assistencial"></div><h3>Prevenir Assistencial</h3><p>A centralização dos canais de comunicação, inclusive de voz, e a automação de atendimento pelo WhatsApp transformaram a gestão da comunicação da Prevenir Assistencial.</p><a class="btn btn-ghost-green" href="https://neppo.com.br/case-prevenir-assistencial/" target="_blank" rel="noopener">Case completo</a></article>
+          <article class="case-card"><div class="case-logo"><img src="assets/case-junco.png" alt="Junco"></div><h3>Junco</h3><p>Com a integração dos canais de comunicação da Junco, os agentes passaram a ter melhor desempenho nas atividades individuais.</p><a class="btn btn-ghost-green" href="https://neppo.com.br/case-junco/" target="_blank" rel="noopener">Case completo</a></article>
+          <article class="case-card"><div class="case-logo"><img src="assets/case-rec.png" alt="Rec Transportes"></div><h3>Rec Transportes</h3><p>Como a Rec Transportes consolidou sua posição de destaque no mercado, atendendo aproximadamente 6.700 pontos de entrega em 750 municípios.</p><a class="btn btn-ghost-green" href="https://neppo.com.br/case-rec-transportes/" target="_blank" rel="noopener">Case completo</a></article>
+          <article class="case-card"><div class="case-logo"><img src="assets/case-lojadoce.png" alt="Loja Doce"></div><h3>Loja Doce</h3><p>A comunicação digital trouxe uma transformação imediata, proporcionando grande velocidade e produtividade no atendimento ao cliente, mesmo com um mix de produtos com mais de 30.000 itens.</p><a class="btn btn-ghost-green" href="https://neppo.com.br/case-loja-doce/" target="_blank" rel="noopener">Case completo</a></article>
         </div>
       </div>
     </section>
