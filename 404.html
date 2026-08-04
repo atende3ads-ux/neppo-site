@@ -7,7 +7,7 @@
   <title>Página não encontrada | Neppo</title>
   <meta name="robots" content="noindex">
   <!-- base garante que links/assets relativos funcionem em qualquer profundidade de URL no GitHub Pages -->
-  <base href="/neppo-site/">
+  <script>if (location.hostname.endsWith('github.io')) { document.write('<base href="/neppo-site/">'); }</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Unbounded:wght@400;500&amp;display=swap" rel="stylesheet">
@@ -25,25 +25,26 @@
       --muted: #69756f;
       --line: #dfe9df;
       --paper: #fffefa;
+      --white: #fff;
+      --shadow-sm: 0 8px 24px rgba(37, 44, 59, .07);
       --transition: .25s ease;
       --font-display: "Unbounded", "Outfit", sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
     body {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
       margin: 0;
-      background: linear-gradient(180deg, #f1ffef 0%, var(--paper) 60%);
+      background: var(--paper);
       color: var(--ink);
       font-family: "Outfit", system-ui, sans-serif;
       font-size: 16px;
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
     }
+    body.menu-open { overflow: hidden; }
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; }
     .container { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
     .btn {
       display: inline-flex;
@@ -60,21 +61,46 @@
       transition: transform var(--transition), background var(--transition);
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn:focus-visible { outline: 3px solid rgba(22, 130, 71, .34); outline-offset: 3px; }
+    .btn:focus-visible, .main-nav a:focus-visible, .menu-toggle:focus-visible { outline: 3px solid rgba(22, 130, 71, .34); outline-offset: 3px; }
     .btn-primary { background: var(--green-dark); color: #fff; box-shadow: 0 8px 22px rgba(22, 130, 71, .2); }
     .btn-primary:hover { background: #116c3b; }
+    .btn-vivid { background: var(--green-vivid); color: #fff; }
+    .btn-vivid:hover { background: #02b552; }
+    .btn-purple { background: var(--purple); color: #fff; }
+    .btn-purple:hover { background: var(--purple-deep); }
     .btn-ghost-green { border-color: var(--green-dark); background: transparent; color: var(--green-dark); }
     .btn-ghost-green:hover { background: var(--green-chip); }
 
-    .site-header { border-bottom: 1px solid rgba(37,44,59,.07); background: rgba(255,255,255,.8); }
-    .header-inner { height: 66px; display: flex; align-items: center; justify-content: space-between; }
+    /* Header padrão */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(37,44,59,.07);
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(16px);
+    }
+    .header-inner { height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 26px; }
     .brand img { width: 132px; height: auto; }
+    .main-nav { display: flex; align-items: center; gap: 28px; margin-left: auto; }
+    .main-nav a { position: relative; color: var(--navy); font-size: 14px; font-weight: 500; }
+    .main-nav a .caret { margin-left: 4px; font-size: 10px; color: var(--navy); }
+    .main-nav a:not(.btn)::after { content: ""; position: absolute; right: 0; bottom: -7px; left: 0; height: 2px; transform: scaleX(0); background: var(--green-vivid); transition: transform var(--transition); }
+    .main-nav a:hover::after { transform: scaleX(1); }
+    .main-nav .mobile-action { display: none; }
+    .header-actions { display: flex; align-items: center; gap: 12px; }
+    .header-actions .btn { min-height: 38px; padding: 9px 20px; font-size: 13px; }
+    .menu-toggle { display: none; width: 42px; height: 42px; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 50%; background: var(--white); cursor: pointer; }
+    .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after { display: block; width: 18px; height: 2px; border-radius: 2px; background: var(--ink); transition: var(--transition); }
+    .menu-toggle span { position: relative; }
+    .menu-toggle span::before, .menu-toggle span::after { content: ""; position: absolute; left: 0; }
+    .menu-toggle span::before { top: -6px; }
+    .menu-toggle span::after { top: 6px; }
 
+    /* Conteúdo do erro */
     .error-main {
-      display: grid;
-      flex: 1;
-      place-items: center;
-      padding: 60px 0;
+      padding: 70px 0 90px;
+      background: linear-gradient(180deg, #f1ffef 0%, var(--paper) 70%);
       text-align: center;
     }
     .error-robot { width: min(340px, 70vw); margin: 0 auto 6px; }
@@ -101,14 +127,36 @@
     .error-links a { color: var(--green-dark); font-weight: 600; }
     .error-links a:hover { text-decoration: underline; }
 
+    /* Footer padrão */
+    .site-footer { padding: 70px 0 0; background: #f2f4f6; color: var(--navy); }
+    .footer-grid { display: grid; grid-template-columns: 1.25fr 1fr 1fr .95fr .75fr; gap: 40px; padding-bottom: 64px; }
+    .footer-brand img.footer-logo { width: 184px; height: auto; margin-bottom: 42px; }
+    .contact-row { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; font-size: 14px; color: var(--navy); }
+    .contact-row img { width: 18px; height: 18px; }
+    .footer-col h3 { margin: 6px 0 28px; color: var(--green-vivid); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .footer-col a { display: block; margin-bottom: 12px; color: #575d68; font-size: 13px; }
+    .footer-col a:hover { color: var(--green-dark); }
     .footer-bar { background: var(--purple-deep); color: #fff; }
     .footer-bar-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 50px; padding: 10px 0; font-size: 12px; }
     .social { display: flex; gap: 22px; }
     .social img { width: 19px; height: 19px; }
 
+    @media (max-width: 980px) {
+      .main-nav { display: none; }
+      .header-actions .btn-purple { display: none; }
+      .menu-toggle { display: flex; }
+      .main-nav.open { position: fixed; inset: 66px 0 auto; display: flex; flex-direction: column; align-items: stretch; gap: 0; border-bottom: 1px solid var(--line); padding: 18px 24px 28px; background: #fff; box-shadow: var(--shadow-sm); }
+      .main-nav.open a { padding: 14px 0; font-size: 16px; }
+      .main-nav.open .mobile-action { display: inline-flex; margin-top: 10px; color: #fff; }
+      .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; }
+    }
+
     @media (max-width: 680px) {
       .container { width: min(100% - 32px, 1160px); }
+      .header-actions .btn-vivid { display: none; }
       .error-actions .btn { width: 100%; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
       .footer-bar-inner { align-items: flex-start; flex-direction: column; }
     }
 
@@ -121,7 +169,20 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Neppo - página inicial"><img src="assets/logo-header.png" alt="Neppo" width="132" height="34"></a>
-      <a class="btn btn-primary" href="index.html">Voltar para o início</a>
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+        <a href="index.html#solucoes">Soluções <span class="caret" aria-hidden="true">▾</span></a>
+        <a href="page-planos-e-precos.html">Planos e Preços</a>
+        <a href="index.html#conteudos">Integrações <span class="caret" aria-hidden="true">▾</span></a>
+        <a href="#" data-link-pendente="parcerias">Parcerias</a>
+        <a href="page-casos-de-sucesso.html">Conteúdos <span class="caret" aria-hidden="true">▾</span></a>
+        <a href="index.html#contato">Contato</a>
+        <a class="btn btn-vivid mobile-action" href="page-demonstracao.html#form">Contrate Agora!</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-purple" href="page-demo.html">Ver Demonstração</a>
+        <a class="btn btn-vivid" href="page-demonstracao.html#form">Contrate Agora!</a>
+        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="main-nav" aria-expanded="false"><span></span></button>
+      </div>
     </div>
   </header>
 
@@ -144,15 +205,80 @@
     </div>
   </main>
 
-  <footer class="footer-bar">
-    <div class="container footer-bar-inner">
-      <span>Copyright © 2026 Neppo | Todos os direitos reservados.</span>
-      <div class="social">
-        <a href="#" aria-label="Instagram"><img src="assets/icon-instagram.svg" alt=""></a>
-        <a href="#" aria-label="LinkedIn"><img src="assets/icon-linkedin.svg" alt=""></a>
-        <a href="#" aria-label="YouTube"><img src="assets/icon-youtube.svg" alt=""></a>
+  <footer class="site-footer" id="contato">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img class="footer-logo" src="assets/logo-footer.png" alt="Neppo by Sankhya" width="184" height="47">
+          <div class="contact-row"><img src="assets/icon-whatsapp.svg" alt="" aria-hidden="true"><span>(34) 3256-3200</span></div>
+          <div class="contact-row"><img src="assets/icon-mail.svg" alt="" aria-hidden="true"><span>comercial@neppo.com.br</span></div>
+          <div class="contact-row"><img src="assets/icon-pin.svg" alt="" aria-hidden="true"><span>Av. Floriano Peixoto n°1615</span></div>
+        </div>
+        <div class="footer-col">
+          <h3>Soluções</h3>
+          <a href="index.html#conteudos">WhatsApp API Oficial</a>
+          <a href="index.html#conteudos">Telegram</a>
+          <a href="index.html#conteudos">Facebook Messenger</a>
+          <a href="index.html#conteudos">Instagram</a>
+          <a href="index.html#conteudos">E-mail</a>
+          <a href="index.html#conteudos">Neppo SMS</a>
+          <a href="index.html#conteudos">Chatbot</a>
+          <a href="index.html#conteudos">Omnichannel</a>
+          <a href="index.html#conteudos">Web Chat</a>
+          <a href="index.html#conteudos">Chat Interno</a>
+          <a href="index.html#conteudos">Neppo Voz</a>
+          <a href="index.html#conteudos">Neppo Ticket</a>
+          <a href="index.html#conteudos">Neppo Grow</a>
+          <a href="index.html#conteudos">WhatsApp Voz</a>
+        </div>
+        <div class="footer-col">
+          <h3>A Neppo</h3>
+          <a href="index.html#inicio">Quem somos</a>
+          <a href="page-planos-e-precos.html">Planos e Preços</a>
+          <a href="#" data-link-pendente="parcerias">Parcerias</a>
+          <a href="page-demonstracao.html">Demonstração</a>
+          <a href="#" data-link-pendente="termos">Termos de Uso</a>
+          <a href="#" data-link-pendente="privacidade">Política de Privacidade</a>
+          <a href="#" data-link-pendente="status">Status Page Serviços Neppo</a>
+        </div>
+        <div class="footer-col">
+          <h3>Conteúdos</h3>
+          <a href="#" data-link-pendente="blog">Blog</a>
+          <a href="#" data-link-pendente="materiais">Materiais Ricos</a>
+          <a href="page-casos-de-sucesso.html">Cases de Sucesso</a>
+        </div>
+        <div class="footer-col">
+          <h3>Contato</h3>
+          <a href="index.html#faq">Central de Ajuda</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="container footer-bar-inner">
+        <span>Copyright © 2026 Neppo | Todos os direitos reservados.</span>
+        <div class="social">
+          <a href="#" aria-label="Instagram"><img src="assets/icon-instagram.svg" alt=""></a>
+          <a href="#" aria-label="LinkedIn"><img src="assets/icon-linkedin.svg" alt=""></a>
+          <a href="#" aria-label="YouTube"><img src="assets/icon-youtube.svg" alt=""></a>
+        </div>
       </div>
     </div>
   </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.main-nav');
+    menuButton.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      document.body.classList.toggle('menu-open', open);
+    });
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+    }));
+  </script>
 </body>
 </html>
