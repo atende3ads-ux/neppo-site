@@ -691,14 +691,14 @@
       });
     });
 
-    // Formulário sem backend definido: valida e confirma visualmente.
-    // Quando houver endpoint/integração (RD, CRM etc.), troque este handler pelo envio real.
+    // Formulário sem backend definido: valida e leva à página de obrigado (mesmo fluxo do site atual:
+    // /experiencia -> /obrigado-experiencia). Quando houver endpoint/integração (RD, CRM etc.),
+    // troque este handler pelo envio real mantendo o redirect.
     const form = document.getElementById('demo-form');
     form.addEventListener('submit', event => {
       event.preventDefault();
       if (!form.reportValidity()) return;
-      form.querySelector('.form-success').classList.add('visible');
-      form.querySelector('.form-submit').disabled = true;
+      window.location.href = 'page-obrigado-experiencia.html';
     });
   </script>
 </body>
