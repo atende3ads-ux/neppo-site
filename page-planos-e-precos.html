@@ -118,9 +118,37 @@
       z-index: 50;
       border-bottom: 1px solid rgba(37,44,59,.07);
       background: rgba(255,255,255,.92);
+      -webkit-backdrop-filter: blur(16px);
       backdrop-filter: blur(16px);
+      transition: background .35s ease, border-color .35s ease, padding .35s ease;
     }
-    .header-inner { height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 26px; }
+    .header-inner {
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 26px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      transition: background .35s ease, box-shadow .35s ease, border-color .35s ease, height .35s ease, padding .35s ease;
+    }
+    /* Ao rolar: header vira pílula flutuante com efeito vidro (estilo Octadesk) */
+    .site-header.floating {
+      border-bottom-color: transparent;
+      background: transparent;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      padding: 12px 16px;
+    }
+    .site-header.floating .header-inner {
+      height: 60px;
+      padding: 0 10px 0 22px;
+      border-color: rgba(255,255,255,.7);
+      background: rgba(255,255,255,.72);
+      -webkit-backdrop-filter: blur(18px) saturate(1.4);
+      backdrop-filter: blur(18px) saturate(1.4);
+      box-shadow: 0 14px 44px rgba(37,44,59,.16);
+    }
     .brand img { width: 132px; height: auto; }
     .main-nav { display: flex; align-items: center; gap: 28px; margin-left: auto; }
     .main-nav a { position: relative; color: var(--navy); font-size: 14px; font-weight: 500; }
@@ -255,37 +283,62 @@
     .person strong { display: block; font-size: 14px; color: var(--navy); }
     .person span { display: block; color: var(--muted); font-size: 12px; }
 
-    /* Pop-up amigável WhatsApp Voz */
+    /* Pop-up WhatsApp Voz: modal central em destaque */
+    .voz-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 89;
+      background: rgba(30, 35, 47, .55);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .4s ease;
+    }
+    .voz-overlay.visible { opacity: 1; pointer-events: auto; }
     .voz-popup {
       position: fixed;
-      right: 22px;
-      bottom: 22px;
+      top: 50%;
+      left: 50%;
       z-index: 90;
       display: grid;
-      grid-template-columns: 96px 1fr;
-      gap: 16px;
-      width: min(440px, calc(100vw - 32px));
+      grid-template-columns: 220px 1fr;
+      gap: 26px;
+      width: min(720px, calc(100vw - 32px));
       border: 1px solid rgba(37,44,59,.08);
-      border-radius: 18px;
-      padding: 18px;
+      border-radius: 26px;
+      padding: 28px;
       background: #fff;
-      box-shadow: 0 24px 60px rgba(37,44,59,.24);
+      box-shadow: 0 40px 110px rgba(15, 20, 30, .45);
       opacity: 0;
-      transform: translateY(24px);
+      transform: translate(-50%, -50%) scale(.86);
       pointer-events: none;
-      transition: opacity .45s ease, transform .45s ease;
+      transition: opacity .45s ease, transform .45s cubic-bezier(.2, .9, .3, 1.2);
     }
-    .voz-popup.visible { opacity: 1; transform: none; pointer-events: auto; }
-    .voz-popup-media { overflow: hidden; border-radius: 12px; background: #0b141a; }
+    .voz-popup.visible { opacity: 1; transform: translate(-50%, -50%) scale(1); pointer-events: auto; }
+    .voz-popup-media { overflow: hidden; border-radius: 16px; background: #0b141a; }
     .voz-popup-media img { width: 100%; height: 100%; object-fit: cover; }
-    .voz-popup-close { position: absolute; top: 10px; right: 10px; display: grid; place-items: center; width: 26px; height: 26px; border: 0; border-radius: 50%; background: var(--green-chip); color: var(--green-dark); font-size: 13px; font-weight: 700; cursor: pointer; }
-    .voz-popup-close:hover { background: var(--green-mint); }
-    .voz-popup-tag { display: inline-flex; align-items: center; gap: 7px; margin-bottom: 8px; color: var(--navy); font-size: 13px; font-weight: 700; }
+    .voz-popup-close { position: absolute; top: 14px; right: 14px; display: grid; place-items: center; width: 32px; height: 32px; border: 0; border-radius: 50%; background: var(--green-chip); color: var(--green-dark); font-size: 15px; font-weight: 700; cursor: pointer; transition: var(--transition); }
+    .voz-popup-close:hover { background: var(--green-mint); transform: rotate(90deg); }
+    .voz-popup-body { display: flex; flex-direction: column; justify-content: center; }
+    .voz-popup-tag { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; margin-bottom: 14px; border-radius: 999px; padding: 7px 14px; background: var(--green-chip); color: var(--green-dark); font-size: 13px; font-weight: 700; animation: voz-pulse 2s ease-in-out infinite; }
     .voz-popup-tag img { width: 18px; height: 18px; }
-    .voz-popup h3 { margin: 0 22px 8px 0; font-size: 15px; font-weight: 700; line-height: 1.35; color: var(--ink); }
+    @keyframes voz-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(2, 205, 93, .35); }
+      50% { box-shadow: 0 0 0 9px rgba(2, 205, 93, 0); }
+    }
+    .voz-popup h3 { margin: 0 26px 12px 0; font-family: var(--font-display); font-size: clamp(19px, 2vw, 25px); font-weight: 400; line-height: 1.3; letter-spacing: -.03em; color: var(--ink); }
     .voz-popup h3 em { color: var(--green-vivid); font-style: normal; }
-    .voz-popup p { margin: 0 0 12px; color: var(--muted); font-size: 12.5px; }
-    .voz-popup .btn { min-height: 38px; padding: 8px 18px; font-size: 13px; }
+    .voz-popup p { margin: 0 0 22px; color: var(--muted); font-size: 14.5px; }
+    .voz-popup .btn { align-self: flex-start; min-height: 48px; padding: 12px 28px; font-size: 15px; box-shadow: 0 10px 26px rgba(2, 205, 93, .35); }
+    @media (max-width: 680px) {
+      .voz-popup { grid-template-columns: 1fr; gap: 18px; padding: 20px; }
+      .voz-popup-media { max-height: 240px; }
+      .voz-popup .btn { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .voz-popup-tag { animation: none; }
+    }
 
     /* Footer */
     .site-footer { padding: 70px 0 0; background: #f2f4f6; color: var(--navy); }
@@ -574,10 +627,11 @@
     </section>
   </main>
 
-  <aside class="voz-popup" id="voz-popup" role="dialog" aria-label="Conheça o WhatsApp Voz">
+  <div class="voz-overlay" id="voz-overlay" aria-hidden="true"></div>
+  <aside class="voz-popup" id="voz-popup" role="dialog" aria-modal="true" aria-label="Conheça o WhatsApp Voz">
     <button class="voz-popup-close" type="button" aria-label="Fechar aviso">✕</button>
     <div class="voz-popup-media"><img src="assets/whatsapp-voz.gif" alt="Demonstração do WhatsApp Voz no celular"></div>
-    <div>
+    <div class="voz-popup-body">
       <span class="voz-popup-tag"><img src="assets/icon-whatsapp.svg" alt="" aria-hidden="true"> WhatsApp Voz</span>
       <h3>Ligue para seu cliente pelo <em>WhatsApp sem sair da plataforma</em></h3>
       <p>Com o WhatsApp Voz, seus agentes realizam chamadas de voz diretamente pelo canal oficial do WhatsApp, tudo integrado à plataforma, com registro completo e controle total.</p>
@@ -646,6 +700,12 @@
   </footer>
 
   <script>
+    // Header flutuante com efeito vidro ao rolar
+    const headerEl = document.querySelector('.site-header');
+    const onHeaderScroll = () => headerEl.classList.toggle('floating', window.scrollY > 24);
+    onHeaderScroll();
+    window.addEventListener('scroll', onHeaderScroll, { passive: true });
+
     const menuButton = document.querySelector('.menu-toggle');
     const menu = document.querySelector('.main-nav');
     menuButton.addEventListener('click', () => {
@@ -670,14 +730,19 @@
       });
     });
 
-    // Pop-up amigável do WhatsApp Voz: aparece uma vez por sessão, sem bloquear a página.
+    // Pop-up do WhatsApp Voz: modal central, uma vez por sessão.
     const vozPopup = document.getElementById('voz-popup');
+    const vozOverlay = document.getElementById('voz-overlay');
     if (vozPopup && !sessionStorage.getItem('vozPopupFechado')) {
-      setTimeout(() => vozPopup.classList.add('visible'), 5000);
-      vozPopup.querySelector('.voz-popup-close').addEventListener('click', () => {
+      setTimeout(() => { vozPopup.classList.add('visible'); vozOverlay.classList.add('visible'); }, 4000);
+      const fecharVoz = () => {
         vozPopup.classList.remove('visible');
+        vozOverlay.classList.remove('visible');
         sessionStorage.setItem('vozPopupFechado', '1');
-      });
+      };
+      vozPopup.querySelector('.voz-popup-close').addEventListener('click', fecharVoz);
+      vozOverlay.addEventListener('click', fecharVoz);
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharVoz(); });
     }
   </script>
 </body>
