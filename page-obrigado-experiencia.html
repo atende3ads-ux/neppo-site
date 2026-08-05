@@ -117,6 +117,8 @@
       top: 0;
       z-index: 50;
       padding: 12px 16px;
+      /* o conteúdo abaixo sobe por trás do menu flutuante */
+      margin-bottom: -84px;
     }
     .header-inner {
       height: 60px;
@@ -151,7 +153,7 @@
     /* Hero de agradecimento */
     .hero {
       position: relative;
-      padding: 96px 0 90px;
+      padding: 180px 0 90px;
       background: linear-gradient(180deg, #f1ffef 0%, #fff 100%);
       text-align: center;
     }
@@ -300,7 +302,7 @@
       .container { width: min(100% - 32px, 1160px); }
       .section { padding: 76px 0; }
       .header-actions .btn-vivid { display: none; }
-      .hero { padding: 64px 0; }
+      .hero { padding: 148px 0 64px; }
       .tour-grid, .solve-grid { grid-template-columns: 1fr; }
       .channel-pill { font-size: 11px; padding: 6px 11px; }
       .client-track { gap: 48px; }
