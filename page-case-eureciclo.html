@@ -144,6 +144,15 @@
     .kpi-main > p { max-width: 450px; margin: 22px 0 0; color: var(--on-navy); font-size: 18px; line-height: 1.5; }
     .kpi-main b, .kpi b, .res-list b { color: #fff; font-weight: 600; }
     .viz { margin-top: auto; padding-top: 30px; }
+    .results-stack { display: grid; gap: 18px; }
+    .kpi-main--faixa { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 24px 72px; padding: 44px 52px; }
+    .kpi-main--faixa .num { font-size: clamp(60px, 8.6vw, 128px); }
+    .kpi-main-txt > p { max-width: 470px; margin: 0; color: var(--on-navy); font-size: 18px; line-height: 1.5; }
+    .kpi-main--faixa .viz { margin-top: 0; padding-top: 26px; }
+    .kpi-row { display: grid; grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr)); gap: 18px; }
+    .kpi-row .kpi { border: 1px solid var(--line-navy); border-radius: 20px; padding: 28px 26px 26px; background: rgba(255,255,255,.03); }
+    .kpi-row .kpi .num { font-size: clamp(36px, 3.4vw, 50px); }
+    .kpi-row .kpi p { max-width: none; margin-top: 14px; }
     .bar-track { position: relative; height: 12px; overflow: hidden; border-radius: 99px; background: rgba(255,255,255,.08); }
     .bar-track i { position: absolute; top: 0; bottom: 0; left: 0; width: 0; border-radius: 99px; transition: width 1.4s cubic-bezier(.2,.7,.2,1); }
     .bar-track .de { background: var(--green); }
@@ -293,6 +302,8 @@
       .results-head { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 40px; }
       .results-grid { grid-template-columns: 1fr; gap: 40px; }
       .kpi p { max-width: none; }
+      .kpi-main--faixa { grid-template-columns: 1fr; gap: 20px; padding: 36px 32px; }
+      .kpi-row { --n: 2 !important; }
       .ficha { --cols: 2 !important; }
       .story-grid { grid-template-columns: 1fr; gap: 40px; }
       .toc { position: static; }
@@ -323,6 +334,11 @@
       .kpi .num { font-size: 44px; }
       .kpi p, .kpi-list.stack .kpi p { margin-top: 10px; }
       .res-list li { font-size: 16px; }
+      .kpi-main--faixa { padding: 28px 22px 24px; }
+      .kpi-main-txt > p { font-size: 16px; }
+      .kpi-row { --n: 1 !important; gap: 12px; }
+      .kpi-row .kpi { padding: 22px 22px 20px; }
+      .kpi-row .kpi .num { font-size: 40px; }
       .resumo { grid-template-columns: 1fr; margin-bottom: 60px; }
       .compare { grid-template-columns: 1fr; }
       .destaque { flex-direction: column; align-items: flex-start; gap: 10px; padding: 22px 24px; }
@@ -392,16 +408,13 @@
     <section class="results" id="resultados-numeros" aria-labelledby="res-titulo">
       <img class="divider top" src="assets/divisoria-sec-1.svg" alt="" aria-hidden="true">
       <img class="divider bottom" src="assets/divisoria-7.svg" alt="" aria-hidden="true">
-      <div class="mark-bg" aria-hidden="true"><img src="assets/logo-mark.svg" alt=""></div>
+      
       <div class="container">
         <div class="results-head">
           <div><p class="eyebrow">Resultados</p><h2 class="section-title" id="res-titulo">O que mudou em <em>um ano e meio</em> de parceria</h2></div>
           <p>Resultados informados pela Eureciclo a partir do fluxo de leads qualificados pelo SDR-IA.</p>
         </div>
-        <div class="results-grid">
-          <article class="kpi-main"><span class="kpi-tag">Impacto na operação comercial</span><div class="num"><span data-count="20">20</span>–<span data-count="25">25</span><span class="pct">%</span></div><p>da operação comercial da Eureciclo hoje é impactada pelo <b>SDR-IA</b>, segundo estimativa da própria empresa.</p><div class="viz" aria-hidden="true"><div class="bar-track"><i class="ate" style="--w:25%"></i><i class="de" style="--w:20%"></i></div><div class="bar-legend"><span>Participação do SDR-IA</span><span>100% da operação</span></div></div></article>
-          <div class="kpi-list"><article class="kpi"><div class="num">~<span data-count="30">30</span></div><p><b>contratos fechados</b> a partir do fluxo do SDR-IA ao longo da parceria</p></article><article class="kpi"><div class="num"><span data-count="3">3</span> a <span data-count="5">5</span></div><p><b>contratos por mês</b> originados de leads qualificados pela plataforma</p></article><article class="kpi"><div class="num">R$&nbsp;<span data-count="54">54</span><small>mil</small></div><p>em uma das propostas originadas de uma oportunidade <b>qualificada pelo SDR-IA</b></p></article><article class="kpi"><div class="num"><span data-count="5">5</span><small>min</small></div><p>entre receber um contato e <b>agendar a reunião</b>, já com a qualificação feita</p></article></div>
-        </div>
+        <div class="results-stack"><article class="kpi-main kpi-main--faixa"><div class="kpi-main-num"><span class="kpi-tag">Impacto na operação comercial</span><div class="num"><span data-count="20">20</span>–<span data-count="25">25</span><span class="pct">%</span></div></div><div class="kpi-main-txt"><p>da operação comercial da Eureciclo hoje é impactada pelo <b>SDR-IA</b>, segundo estimativa da própria empresa.</p><div class="viz" aria-hidden="true"><div class="bar-track"><i class="ate" style="--w:25%"></i><i class="de" style="--w:20%"></i></div><div class="bar-legend"><span>Participação do SDR-IA</span><span>100% da operação</span></div></div></div></article><div class="kpi-row" style="--n:4"><article class="kpi"><div class="num">~<span data-count="30">30</span></div><p><b>contratos fechados</b> a partir do fluxo do SDR-IA ao longo da parceria</p></article><article class="kpi"><div class="num"><span data-count="3">3</span> a <span data-count="5">5</span></div><p><b>contratos por mês</b> originados de leads qualificados pela plataforma</p></article><article class="kpi"><div class="num">R$&nbsp;<span data-count="54">54</span><small>mil</small></div><p>em uma das propostas originadas de uma oportunidade <b>qualificada pelo SDR-IA</b></p></article><article class="kpi"><div class="num"><span data-count="5">5</span><small>min</small></div><p>entre receber um contato e <b>agendar a reunião</b>, já com a qualificação feita</p></article></div></div>
         <dl class="ficha" style="--cols:4"><div><dt>Segmento</dt><dd>Sustentabilidade e logística reversa</dd></div><div><dt>Localização</dt><dd>Brasil</dd></div><div><dt>Departamento</dt><dd>Comercial e atendimento</dd></div><div><dt>Solução</dt><dd>SDR-IA + integração HubSpot</dd></div></dl>
       </div>
     </section>
