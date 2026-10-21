@@ -147,11 +147,14 @@
     .results-stack { display: grid; gap: 18px; }
     .kpi-main--faixa { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 24px 72px; padding: 44px 52px; }
     .kpi-main--faixa .num { font-size: clamp(60px, 8.6vw, 128px); }
+    .kpi-main--faixa .num.texto { max-width: 430px; }
     .kpi-main-txt > p { max-width: 470px; margin: 0; color: var(--on-navy); font-size: 18px; line-height: 1.5; }
     .kpi-main--faixa .viz { margin-top: 0; padding-top: 26px; }
     .kpi-row { display: grid; grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr)); gap: 18px; }
     .kpi-row .kpi { border: 1px solid var(--line-navy); border-radius: 20px; padding: 28px 26px 26px; background: rgba(255,255,255,.03); }
     .kpi-row .kpi .num { font-size: clamp(36px, 3.4vw, 50px); }
+    .kpi-row .kpi .num.texto { white-space: normal; font-size: clamp(22px, 2.2vw, 30px); line-height: 1.15; color: #fff; }
+    .kpi-row .kpi .num.texto em { color: var(--green); font-style: normal; }
     .kpi-row .kpi p { max-width: none; margin-top: 14px; }
     .bar-track { position: relative; height: 12px; overflow: hidden; border-radius: 99px; background: rgba(255,255,255,.08); }
     .bar-track i { position: absolute; top: 0; bottom: 0; left: 0; width: 0; border-radius: 99px; transition: width 1.4s cubic-bezier(.2,.7,.2,1); }
@@ -210,7 +213,7 @@
     .bloco p { margin-bottom: 18px; color: #4a5160; font-size: 17px; line-height: 1.7; }
     .bloco > :last-child { margin-bottom: 0; }
     .bloco h3 { margin: 28px 0 10px; color: var(--navy); font-size: 17px; }
-    mark { padding: 0 2px; background: linear-gradient(transparent 58%, #cdefcd 58%); color: var(--navy); font-weight: 600; }
+    mark { padding: 0 2px; background: transparent; color: var(--navy); font-weight: 600; }
     .quote-card { margin: 34px 0; border-top: 3px solid var(--green); border-radius: 12px; padding: 26px 30px; background: #fff; box-shadow: 0 14px 34px rgba(37,44,59,.08); }
     .quote-card blockquote { margin: 0 0 16px; font-family: var(--font-display); font-size: clamp(16px, 1.45vw, 19px); font-weight: 400; line-height: 1.55; letter-spacing: -.02em; color: var(--navy); }
     .quote-card blockquote::before { content: "“"; margin-right: 2px; color: var(--green); }
@@ -287,7 +290,7 @@
     .social { display: flex; gap: 22px; }
     .social img { width: 19px; height: 19px; }
 
-    @media (max-width: 1100px) {
+    @media (max-width: 1280px) {
       .float-stat { right: 12px; }
     }
     @media (max-width: 980px) {
@@ -339,6 +342,7 @@
       .kpi-row { --n: 1 !important; gap: 12px; }
       .kpi-row .kpi { padding: 22px 22px 20px; }
       .kpi-row .kpi .num { font-size: 40px; }
+      .kpi-row .kpi .num.texto { font-size: 25px; }
       .resumo { grid-template-columns: 1fr; margin-bottom: 60px; }
       .compare { grid-template-columns: 1fr; }
       .destaque { flex-direction: column; align-items: flex-start; gap: 10px; padding: 22px 24px; }
