@@ -689,7 +689,6 @@ details.dcard[open] .chev{transform:rotate(180deg)}
   <!-- 1. Entrada -->
   <section class="hero">
     <div class="container">
-      <div class="anno"><b>Teste de pico · protótipo de layout</b> · Fluxo completo navegável: entrada, 8 perguntas, resultado parcial com formulário e diagnóstico completo. Integrações (CRM, GA4, links do guia e WhatsApp) ainda dependem das confirmações listadas na tarefa.</div>
       <div class="hero-split">
         <div>
           <span class="selo"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-clock"/></svg></span>Teste de pico · gratuito · 2 minutos</span>
@@ -705,7 +704,6 @@ details.dcard[open] .chev{transform:rotate(180deg)}
           </ul>
         </div>
         <div>
-          <div class="anno"><b>Cards flutuantes</b> · Ocupam o lugar dos cards do Radar de maturidade. Ajustar posição e estilo quando a URL do Radar for confirmada.</div>
           <div class="hero-visual">
             <div class="preview" aria-hidden="true">
               <span class="eyebrow">Seu resultado</span>
@@ -803,7 +801,6 @@ details.dcard[open] .chev{transform:rotate(180deg)}
         </div>
 
         <form class="lead-form" id="lead-form" novalidate>
-          <div class="anno" style="margin:0"><b>Formulário</b> · Envio ao CRM simulado no protótipo. Os campos ocultos (UTMs, nota, faixa, pico e dor principal) já são preenchidos pela página.</div>
           <h2>Veja o diagnóstico completo</h2>
           <p class="sub">Para cada dor, o que acontece no pico, como resolver e o que medir. Junto, você recebe o guia e a planilha do Teste de pico.</p>
           <div class="fields">
@@ -860,14 +857,12 @@ details.dcard[open] .chev{transform:rotate(180deg)}
           <span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-download"/></svg></span>
           <h3>Leve o teste para o pico real.</h3>
           <p>O guia mostra os seis números para anotar na Black Friday, no Natal e na virada. A planilha compara um dia comum com os dias de pico, e o resultado vira argumento para o financeiro e a diretoria.</p>
-          <div class="anno" style="margin:0"><b>Link pendente</b> · Arquivos ou URLs finais do guia e da planilha.</div>
           <a class="btn btn-primary" href="#" id="d-guia">Baixar guia e planilha</a>
         </div>
         <div class="card dark">
           <span class="tile" aria-hidden="true" style="background:rgba(255,255,255,.08);color:#4FDB8C"><svg class="ico"><use href="#i-whatsapp"/></svg></span>
           <h3>Quer ver isso funcionando na sua operação?</h3>
           <p>Um especialista da Neppo mostra, com a sua nota em mãos, como resolver as dores que mais pesam no seu pico.</p>
-          <div class="anno" style="margin:0"><b>Número pendente</b> · Informar o WhatsApp do comercial. A mensagem já sai preenchida com nota, dor principal e pico.</div>
           <a class="btn btn-wa" href="#" id="d-wa" target="_blank" rel="noopener"><svg class="ico" style="width:18px;height:18px"><use href="#i-whatsapp"/></svg>Falar com um especialista no WhatsApp</a>
         </div>
       </div>
@@ -924,8 +919,6 @@ details.dcard[open] .chev{transform:rotate(180deg)}
   </div>
 </footer>
 
-<button class="notes-toggle" type="button" aria-pressed="false">Mostrar notas do modelo</button>
-
 <script>
 (function(){
   var header=document.querySelector('.site-header');
@@ -945,9 +938,6 @@ details.dcard[open] .chev{transform:rotate(180deg)}
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();header.classList.remove('menu-open');toggle.setAttribute('aria-expanded','false');}});
   var toggle=document.querySelector('.menu-toggle');
   toggle.addEventListener('click',function(){var o=header.classList.toggle('menu-open');toggle.setAttribute('aria-expanded',o?'true':'false');toggle.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');toggle.innerHTML=o?'<svg class="ico"><use href="#i-close"/></svg>':'<svg class="ico"><use href="#i-menu"/></svg>';});
-  var nt=document.querySelector('.notes-toggle');
-  nt.addEventListener('click',function(){var on=document.body.classList.toggle('show-notes');nt.setAttribute('aria-pressed',on?'true':'false');nt.textContent=on?'Esconder notas do modelo':'Mostrar notas do modelo';});
-  if(location.hash==='#notas'){nt.click();}
 })();
 </script>
 
