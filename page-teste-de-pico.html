@@ -357,6 +357,10 @@ body.show-notes .anno{display:block}
 .app{background:linear-gradient(180deg,var(--hero-top) 0%,var(--white) 420px);padding-top:calc(env(safe-area-inset-top,0px) + 124px);padding-bottom:clamp(64px,8vw,112px);min-height:100vh}
 .screen[hidden]{display:none}
 .narrow{max-width:780px;margin-inline:auto}
+.quiz-screen{max-width:1120px;margin-inline:auto}
+.quiz-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(32px,5vw,72px);align-items:start}
+.quiz-prompt{position:sticky;top:calc(env(safe-area-inset-top,0px) + 112px)}
+.quiz-answers .opts{margin-top:0}
 
 .progress{display:flex;align-items:center;gap:16px;margin-bottom:34px}
 .progress .count{font-family:var(--f-display);font-size:14px;font-weight:500;color:var(--navy);white-space:nowrap}
@@ -465,6 +469,9 @@ details.dcard[open] .chev{transform:rotate(180deg)}
 .redo{margin-top:28px;text-align:center}
 
 @media (max-width:1000px){
+  .quiz-layout{display:block}
+  .quiz-prompt{position:static}
+  .quiz-answers .opts{margin-top:30px}
   .flow.f3col .step:nth-child(2)::after{display:block}
   .hero-visual{height:auto;display:grid;gap:12px}
   .preview{display:none}
@@ -755,18 +762,24 @@ details.dcard[open] .chev{transform:rotate(180deg)}
   <div class="container">
 
     <!-- Perguntas -->
-    <div class="screen narrow" id="s-quiz" hidden>
+    <div class="screen quiz-screen" id="s-quiz" hidden>
       <div class="progress">
         <span class="count" id="q-count">1<small>/8</small></span>
         <span class="bar" role="progressbar" aria-label="Progresso do teste" aria-valuemin="0" aria-valuemax="8" aria-valuenow="1"><i id="q-bar"></i></span>
       </div>
-      <h2 class="q-title" id="q-title" tabindex="-1"></h2>
-      <p class="q-apoio" id="q-apoio"></p>
-      <p class="q-note" id="q-note" hidden>Esta pergunta não entra na nota. Ela personaliza o seu resultado.</p>
-      <div class="opts" id="q-opts" role="group" aria-labelledby="q-title"></div>
-      <div class="q-nav">
-        <button class="backlink" type="button" id="q-back"><svg class="ico"><use href="#i-arrow"/></svg>Voltar</button>
-        <span class="hint">Escolha uma opção para avançar</span>
+      <div class="quiz-layout">
+        <div class="quiz-prompt">
+          <h2 class="q-title" id="q-title" tabindex="-1"></h2>
+          <p class="q-apoio" id="q-apoio"></p>
+          <p class="q-note" id="q-note" hidden>Esta pergunta não entra na nota. Ela personaliza o seu resultado.</p>
+        </div>
+        <div class="quiz-answers">
+          <div class="opts" id="q-opts" role="group" aria-labelledby="q-title"></div>
+          <div class="q-nav">
+            <button class="backlink" type="button" id="q-back"><svg class="ico"><use href="#i-arrow"/></svg>Voltar</button>
+            <span class="hint">Escolha uma opção para avançar</span>
+          </div>
+        </div>
       </div>
     </div>
 
