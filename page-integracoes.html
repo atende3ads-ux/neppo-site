@@ -547,7 +547,6 @@ body.show-notes .anno{display:block}
   <!-- Topo -->
   <section class="hero">
     <div class="container">
-      <div class="anno"><b>Página nova: /integracoes/</b> · Pedido da Neppo em 22/10: uma página no formato de Soluções, só com integrações, para ir incluindo cards conforme surgirem parceiros novos. Mesmo topo com gradiente e as mesmas divisórias com aba.</div>
       <div class="hero-split">
         <div>
           <p class="eyebrow">Integrações Neppo</p>
@@ -581,7 +580,6 @@ body.show-notes .anno{display:block}
   <!-- Como funciona -->
   <section class="sec white" style="padding-top:clamp(48px,6vw,72px)">
     <div class="container">
-      <div class="anno"><b>Como funciona</b> · Três etapas que valem para qualquer integração nova. Validar com o time técnico da Neppo como é feita a ativação.</div>
       <div class="sec-head center">
         <p class="eyebrow">Como funciona</p>
         <h2>Seus sistemas e o atendimento trabalhando juntos</h2>
@@ -597,7 +595,6 @@ body.show-notes .anno{display:block}
   <!-- Catálogo de integrações -->
   <section class="sec mint from-white" id="catalogo">
     <div class="container">
-      <div class="anno"><b>Como incluir uma integração nova</b> · Copie um bloco <b>&lt;article class="card int-card"&gt;</b>, troque o logo, o nome, a categoria (data-cat), os textos e o link. O filtro e a contagem de cada categoria se atualizam sozinhos. Para uma categoria nova, inclua um botão no filtro com o mesmo valor de data-cat.</div>
       <div class="sec-head">
         <p class="eyebrow">Integrações</p>
         <h2>Integrações disponíveis</h2>
@@ -732,7 +729,6 @@ body.show-notes .anno{display:block}
   <!-- Perguntas frequentes -->
   <section class="sec mint from-white">
     <div class="container">
-      <div class="anno" style="margin-inline:auto"><b>Perguntas</b> · Respostas montadas a partir das páginas atuais de Sankhya, Ploomes, GoDeep e Planos. Validar com o time técnico da Neppo.</div>
       <div class="sec-head center">
         <p class="eyebrow">Perguntas frequentes</p>
         <h2>Dúvidas sobre as integrações</h2>
@@ -828,7 +824,6 @@ body.show-notes .anno{display:block}
   </div>
 </footer>
 
-<button class="notes-toggle" type="button" aria-pressed="false">Mostrar notas do modelo</button>
 
 <script>
 (function(){
@@ -849,9 +844,6 @@ body.show-notes .anno{display:block}
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();header.classList.remove('menu-open');toggle.setAttribute('aria-expanded','false');}});
   var toggle=document.querySelector('.menu-toggle');
   toggle.addEventListener('click',function(){var o=header.classList.toggle('menu-open');toggle.setAttribute('aria-expanded',o?'true':'false');toggle.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');toggle.innerHTML=o?'<svg class="ico"><use href="#i-close"/></svg>':'<svg class="ico"><use href="#i-menu"/></svg>';});
-  var nt=document.querySelector('.notes-toggle');
-  nt.addEventListener('click',function(){var on=document.body.classList.toggle('show-notes');nt.setAttribute('aria-pressed',on?'true':'false');nt.textContent=on?'Esconder notas do modelo':'Mostrar notas do modelo';});
-  if(location.hash==='#notas'){nt.click();}
 })();
 </script>
 

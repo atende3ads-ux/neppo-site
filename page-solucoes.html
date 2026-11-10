@@ -510,7 +510,6 @@ body.show-notes .anno{display:block}
   <!-- Topo -->
   <section class="hero">
     <div class="container hero-center">
-      <div class="anno"><b>Página nova: /solucoes/</b> · É a porta de entrada do menu Soluções e a "visão geral" que faltava no site. Reúne canais, produtos, segmentos e casos de uso numa página só. Topo com o mesmo gradiente de Planos e preços.</div>
       <p class="eyebrow">Soluções Neppo</p>
       <h1 style="margin-top:14px;max-width:18ch">Atenda e venda em todos os canais, <span class="hl">numa só plataforma</span></h1>
       <p class="lead">Escolha por onde começar: pelo canal que seu cliente já usa, pelo produto que resolve o gargalo da sua equipe ou pelo seu segmento.</p>
@@ -530,7 +529,6 @@ body.show-notes .anno{display:block}
   <!-- Como se conecta -->
   <section class="sec white" style="padding-top:clamp(48px,6vw,72px)">
     <div class="container">
-      <div class="anno"><b>Visão geral da plataforma</b> · Explica em 4 etapas como as peças se conectam. Os números indicam uma sequência real (do contato à gestão).</div>
       <div class="sec-head center">
         <p class="eyebrow">Como funciona</p>
         <h2>Uma plataforma, do primeiro contato à venda</h2>
@@ -568,7 +566,6 @@ body.show-notes .anno{display:block}
   <!-- Produtos -->
   <section class="sec white from-mint" id="produtos">
     <div class="container">
-      <div class="anno"><b>Descrições dos produtos</b> · Saíram dos títulos e textos das páginas de cada produto. Validar com a Neppo, principalmente Chat Embarcado.</div>
       <div class="sec-head">
         <p class="eyebrow">Produtos</p>
         <h2>Produtos para cada etapa do atendimento</h2>
@@ -590,7 +587,6 @@ body.show-notes .anno{display:block}
   <!-- Segmentos -->
   <section class="sec mint from-white" id="segmentos">
     <div class="container">
-      <div class="anno"><b>Segmentos</b> · Textos curtos provisórios, para validar com a Neppo. Os clientes citados em Saúde e Varejo vêm do diagnóstico (cases publicados).</div>
       <div class="sec-head">
         <p class="eyebrow">Segmentos</p>
         <h2>A Neppo no dia a dia do seu mercado</h2>
@@ -638,7 +634,6 @@ body.show-notes .anno{display:block}
       <div class="logos" aria-label="Clientes" style="margin-top:56px">
         <span>Sankhya</span><span>Uniodonto</span><span>GM</span><span>Sabin</span><span>Ploomes</span><span>Facchini</span><span>Ouro Fino</span><span>Hot Beach</span><span>Festcolor</span>
       </div>
-      <div class="anno" style="margin:16px auto 0;text-align:left"><b>Logos</b> · Os nomes em texto marcam o lugar dos logos dos clientes, que entram em versão de uma cor só (cinza), como pede o guia.</div>
     </div>
   </section>
 
@@ -705,7 +700,6 @@ body.show-notes .anno{display:block}
   </div>
 </footer>
 
-<button class="notes-toggle" type="button" aria-pressed="false">Mostrar notas do modelo</button>
 
 <script>
 (function(){
@@ -726,9 +720,6 @@ body.show-notes .anno{display:block}
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();header.classList.remove('menu-open');toggle.setAttribute('aria-expanded','false');}});
   var toggle=document.querySelector('.menu-toggle');
   toggle.addEventListener('click',function(){var o=header.classList.toggle('menu-open');toggle.setAttribute('aria-expanded',o?'true':'false');toggle.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');toggle.innerHTML=o?'<svg class="ico"><use href="#i-close"/></svg>':'<svg class="ico"><use href="#i-menu"/></svg>';});
-  var nt=document.querySelector('.notes-toggle');
-  nt.addEventListener('click',function(){var on=document.body.classList.toggle('show-notes');nt.setAttribute('aria-pressed',on?'true':'false');nt.textContent=on?'Esconder notas do modelo':'Mostrar notas do modelo';});
-  if(location.hash==='#notas'){nt.click();}
 })();
 </script>
 

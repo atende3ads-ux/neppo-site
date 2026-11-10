@@ -510,7 +510,6 @@ body.show-notes .anno{display:block}
   <!-- 1. Topo -->
   <section class="hero">
     <div class="container">
-      <div class="anno"><b>Modelo de página de Solução · Canal</b> · Ordem fixa das seções: topo, problema, como funciona, recursos, casos de uso, resultados, outros canais, perguntas e chamada final. Em cada página de canal mudam os textos, o ícone, o print e as perguntas. Use "Mostrar notas do modelo" para ver o que é fixo e o que muda.</div>
       <div class="hero-split">
         <div>
           <nav class="crumbs" aria-label="Você está em">
@@ -532,7 +531,6 @@ body.show-notes .anno{display:block}
           </ul>
         </div>
         <div>
-          <div class="anno"><b>Print</b> · Esta tela é uma representação feita em código. Na página final, entra um print real da plataforma com uma conversa do Telegram (dados de clientes borrados), como pede o guia.</div>
           <div class="inbox" role="img" aria-label="Tela da Neppo com uma conversa do Telegram na fila de atendimento, ao lado de conversas de WhatsApp, Instagram e e-mail">
             <div class="list">
               <span class="t">Fila de atendimento</span>
@@ -562,7 +560,6 @@ body.show-notes .anno{display:block}
   <!-- 2. Problema -->
   <section class="sec white" style="padding-top:clamp(40px,5vw,64px)">
     <div class="container">
-      <div class="anno"><b>Problema · muda por página</b> · Três dores específicas do canal. Substitui o bloco genérico "Agende um bate-papo", que hoje se repete igual em 15 páginas.</div>
       <div class="sec-head">
         <p class="eyebrow">O problema</p>
         <h2>Quando o Telegram fica fora do atendimento</h2>
@@ -578,7 +575,6 @@ body.show-notes .anno{display:block}
   <!-- 3. Como funciona -->
   <section class="sec mint from-white">
     <div class="container">
-      <div class="anno"><b>Como funciona · estrutura fixa</b> · Sempre 4 etapas, do contato do cliente até o atendente. Muda só o nome do canal e os detalhes de cada etapa.</div>
       <div class="sec-head">
         <p class="eyebrow">Como funciona</p>
         <h2>Do Telegram ao atendente, sem trocar de tela</h2>
@@ -595,7 +591,6 @@ body.show-notes .anno{display:block}
   <!-- 4. Recursos -->
   <section class="sec white from-mint">
     <div class="container">
-      <div class="anno"><b>Recursos · muda por página</b> · Seis recursos com ícone. Os do Telegram vêm da página atual do canal, reescritos de forma mais curta.</div>
       <div class="sec-head">
         <p class="eyebrow">Recursos</p>
         <h2>O que a Neppo faz com o seu Telegram</h2>
@@ -614,7 +609,6 @@ body.show-notes .anno{display:block}
   <!-- 5. Casos de uso -->
   <section class="sec mint from-white">
     <div class="container">
-      <div class="anno"><b>Casos de uso · muda por página</b> · Três usos reais do canal. Para o Telegram, validar com a Neppo quais são os mais comuns entre os clientes.</div>
       <div class="sec-head">
         <p class="eyebrow">Casos de uso</p>
         <h2>Para que as empresas usam o Telegram</h2>
@@ -630,7 +624,6 @@ body.show-notes .anno{display:block}
   <!-- 6. Resultados -->
   <section class="sec navy from-mint">
     <div class="container">
-      <div class="anno" style="color:#7A4A00"><b>Resultados · muda por página</b> · Usar o case mais próximo do canal ou do segmento. Hoje não há case específico de Telegram, então entram resultados gerais de clientes Neppo, com o nome de cada cliente.</div>
       <div class="sec-head">
         <p class="eyebrow">Resultados</p>
         <h2>O que muda para quem atende com a Neppo</h2>
@@ -653,7 +646,6 @@ body.show-notes .anno{display:block}
   <!-- 7. Outros canais -->
   <section class="sec white from-navy">
     <div class="container">
-      <div class="anno"><b>Outros canais · estrutura fixa</b> · Substitui o bloco "Integração com WhatsApp e vários outros canais", que hoje se repete em todas as páginas e ainda cita "PABX Virtual". Mostra os outros canais, menos o da própria página.</div>
       <div class="sec-head">
         <p class="eyebrow">Mais canais</p>
         <h2>O Telegram é um dos canais da Neppo</h2>
@@ -675,7 +667,6 @@ body.show-notes .anno{display:block}
   <!-- 8. Perguntas frequentes -->
   <section class="sec mint from-white">
     <div class="container">
-      <div class="anno" style="margin-inline:auto"><b>Perguntas · muda por página</b> · Cinco perguntas sobre o próprio canal, não sobre a Neppo em geral. Respostas montadas a partir da página atual; validar com o time técnico da Neppo.</div>
       <div class="sec-head center">
         <p class="eyebrow">Perguntas frequentes</p>
         <h2>Dúvidas sobre o Telegram na Neppo</h2>
@@ -693,7 +684,6 @@ body.show-notes .anno{display:block}
   <!-- 9. Chamada final -->
   <section class="sec navy from-mint">
     <div class="container">
-      <div class="anno" style="color:#7A4A00"><b>Chamada final · estrutura fixa</b> · Um bloco só, com o botão principal e o secundário do guia. Muda o título, com o nome do canal.</div>
       <div class="cta-box">
         <div>
           <h2>Quer ver o Telegram funcionando na Neppo?</h2>
@@ -754,7 +744,6 @@ body.show-notes .anno{display:block}
   </div>
 </footer>
 
-<button class="notes-toggle" type="button" aria-pressed="false">Mostrar notas do modelo</button>
 
 <script>
 (function(){
@@ -775,9 +764,6 @@ body.show-notes .anno{display:block}
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();header.classList.remove('menu-open');toggle.setAttribute('aria-expanded','false');}});
   var toggle=document.querySelector('.menu-toggle');
   toggle.addEventListener('click',function(){var o=header.classList.toggle('menu-open');toggle.setAttribute('aria-expanded',o?'true':'false');toggle.setAttribute('aria-label',o?'Fechar menu':'Abrir menu');toggle.innerHTML=o?'<svg class="ico"><use href="#i-close"/></svg>':'<svg class="ico"><use href="#i-menu"/></svg>';});
-  var nt=document.querySelector('.notes-toggle');
-  nt.addEventListener('click',function(){var on=document.body.classList.toggle('show-notes');nt.setAttribute('aria-pressed',on?'true':'false');nt.textContent=on?'Esconder notas do modelo':'Mostrar notas do modelo';});
-  if(location.hash==='#notas'){nt.click();}
 })();
 </script>
 
