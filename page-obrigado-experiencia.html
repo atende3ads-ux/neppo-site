@@ -378,7 +378,7 @@
         </div>
         <div class="micro-cta">
           <div><h3>Descubra o nível de maturidade digital da sua empresa</h3><p>Responda ao nosso formulário gratuito e receba insights personalizados para potencializar sua transformação digital.</p></div>
-          <a class="btn btn-primary" href="https://neppo.com.br/checklist-maturidade-digital/" target="_blank" rel="noopener">Avaliar gratuitamente</a>
+          <a class="btn btn-primary" href="#" data-fora-do-prototipo target="_blank" rel="noopener">Avaliar gratuitamente</a>
         </div>
       </div>
     </section>
@@ -536,5 +536,8 @@
       document.body.classList.remove('menu-open');
     }));
   </script>
+<script id="aviso-fora-do-prototipo">
+(function(){var t;document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-fora-do-prototipo]');if(!a)return;e.preventDefault();if(!t){t=document.createElement('div');t.setAttribute('role','status');t.style.cssText='position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);transform:translateX(-50%);z-index:200;background:#252C3B;color:#fff;font:500 14px/1.4 Outfit,system-ui,sans-serif;padding:12px 18px;border-radius:999px;box-shadow:0 12px 32px rgba(37,44,59,.25);max-width:calc(100vw - 32px);text-align:center;transition:opacity .2s;opacity:0;pointer-events:none';document.body.appendChild(t);}t.textContent='Esta página não faz parte do protótipo.';t.style.opacity='1';clearTimeout(t._h);t._h=setTimeout(function(){t.style.opacity='0';},2400);});})();
+</script>
 </body>
 </html>

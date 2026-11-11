@@ -533,7 +533,7 @@
         </div>
         <div class="micro-cta">
           <div><h3>Ainda não sabe qual plano escolher?</h3><p>Faça seu diagnóstico em minutos e descubra qual plano da Neppo se encaixa melhor no seu negócio</p></div>
-          <a class="btn btn-primary" href="https://neppo.com.br/checklist-maturidade-digital/">Fazer diagnóstico</a>
+          <a class="btn btn-primary" href="#" data-fora-do-prototipo>Fazer diagnóstico</a>
         </div>
       </div>
     </section>
@@ -621,7 +621,7 @@
       <span class="voz-popup-tag"><img src="assets/icon-whatsapp.svg" alt="" aria-hidden="true"> WhatsApp Voz</span>
       <h3>Ligue para seu cliente pelo <em>WhatsApp sem sair da plataforma</em></h3>
       <p>Com o WhatsApp Voz, seus agentes realizam chamadas de voz diretamente pelo canal oficial do WhatsApp, tudo integrado à plataforma, com registro completo e controle total.</p>
-      <a class="btn btn-vivid" href="https://neppo.com.br/neppo-voz/#form" target="_blank" rel="noopener">Ver como funciona</a>
+      <a class="btn btn-vivid" href="page-neppo-voz.html" target="_blank" rel="noopener">Ver como funciona</a>
     </div>
   </aside>
 
@@ -725,5 +725,8 @@
       document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharVoz(); });
     }
   </script>
+<script id="aviso-fora-do-prototipo">
+(function(){var t;document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-fora-do-prototipo]');if(!a)return;e.preventDefault();if(!t){t=document.createElement('div');t.setAttribute('role','status');t.style.cssText='position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);transform:translateX(-50%);z-index:200;background:#252C3B;color:#fff;font:500 14px/1.4 Outfit,system-ui,sans-serif;padding:12px 18px;border-radius:999px;box-shadow:0 12px 32px rgba(37,44,59,.25);max-width:calc(100vw - 32px);text-align:center;transition:opacity .2s;opacity:0;pointer-events:none';document.body.appendChild(t);}t.textContent='Esta página não faz parte do protótipo.';t.style.opacity='1';clearTimeout(t._h);t._h=setTimeout(function(){t.style.opacity='0';},2400);});})();
+</script>
 </body>
 </html>
