@@ -91,7 +91,7 @@ select{font:inherit;font-size:15px;font-weight:500;color:var(--navy);background:
   <section class="intro">
     <p class="eyebrow">Ajustes da validação · 26/11/2026</p>
     <h1>Antes e depois das páginas de Soluções</h1>
-    <p>Aplicamos os dois pedidos da validação nas 21 páginas. Escolha uma página e compare a versão anterior com a nova, lado a lado.</p>
+    <p>Aplicamos os dois pedidos da validação nas 21 páginas e também nas 3 já aprovadas (Soluções, Telegram e Integrações). Escolha uma página e compare a versão anterior com a nova, lado a lado.</p>
   </section>
 
   <div class="changes">
@@ -129,7 +129,7 @@ select{font:inherit;font-size:15px;font-weight:500;color:var(--navy);background:
       <div class="frame after" id="f-after"><iframe id="after" title="Versão nova da página" loading="eager"></iframe></div>
     </div>
   </div>
-  <p class="note">As páginas de segmento (Saúde, Varejo, Bens de consumo, Serviços financeiros e Serviços) não têm a seção de canais. Nelas, a mudança está nos ícones do menu e dos cards de produtos.</p>
+  <p class="note">As páginas de segmento (Saúde, Varejo, Bens de consumo, Serviços financeiros e Serviços), Soluções e Integrações não têm a seção de canais. Nelas, a mudança está nos ícones do menu e dos cards. Em Integrações, os logos dos parceiros (Sankhya, Ploomes e GoDeep) continuam no conteúdo da página, porque identificam cada integração.</p>
 </div>
 
 <script>
@@ -154,7 +154,10 @@ const PAGES = [
   ['page-varejo.html','Varejo',0],
   ['page-bens-de-consumo.html','Bens de consumo',0],
   ['page-servicos-financeiros.html','Serviços financeiros',0],
-  ['page-servicos.html','Serviços',0]
+  ['page-servicos.html','Serviços',0],
+  ['page-solucoes.html','Soluções · já aprovada',0],
+  ['page-telegram.html','Telegram · já aprovada',1],
+  ['page-integracoes.html','Integrações · já aprovada',0]
 ];
 const V = '20261126';
 const $ = id => document.getElementById(id);
@@ -162,7 +165,7 @@ const sel = $('page'), fb = $('before'), fa = $('after');
 const viewBtns = [...document.querySelectorAll('[data-view]')];
 const sizeBtns = [...document.querySelectorAll('[data-size]')];
 
-PAGES.forEach(([f, n, c]) => sel.add(new Option(n + (c ? '' : ' · segmento'), f)));
+PAGES.forEach(([f, n, c]) => sel.add(new Option(n + (c || n.includes('aprovada') ? '' : ' · segmento'), f)));
 
 const q = new URLSearchParams(location.search);
 const state = {
