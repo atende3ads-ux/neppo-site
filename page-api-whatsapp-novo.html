@@ -329,6 +329,26 @@ body.show-notes .anno{display:block}
 .case-links{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:36px}
 .quote.solo{margin-top:0;padding-top:0;border-top:0}
 @media (max-width:640px){.stats.two{grid-template-columns:1fr}}
+
+/* Ícones monocromáticos (pedido Neppo 26/11) */
+.tile{color:var(--green-ink)}
+.tile.solid{background:var(--mint)!important;color:var(--green-ink)!important;border-radius:12px!important}
+.tile.sm.solid{border-radius:9px!important}
+.conv .ch{color:var(--green-ink)}
+/* Seção de canais e produtos em cards (pedido Neppo 26/11) */
+.combo{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.5fr);gap:clamp(32px,5vw,72px);align-items:center}
+.combo .sec-head{margin:0}
+.combo .sec-head .tlink{margin-top:8px}
+.combo-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.combo-card{display:flex;align-items:center;gap:16px;padding:20px 20px 20px 18px;border-radius:20px;background:var(--white);border:1px solid var(--line);box-shadow:var(--shadow);text-decoration:none;color:var(--navy);min-width:0;transition:transform .2s,box-shadow .2s,border-color .2s}
+.combo-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:rgba(22,130,71,.35)}
+.combo-card .tx{display:grid;gap:3px;min-width:0;flex:1}
+.combo-card b{font-size:16px;font-weight:600;line-height:1.3}
+.combo-card small{font-size:13.5px;color:var(--muted);line-height:1.4}
+.combo-card .go{width:18px;height:18px;color:var(--green-ink);flex:none}
+.combo-card:last-child:nth-child(odd){grid-column:1/-1}
+@media (max-width:960px){.combo{grid-template-columns:1fr}}
+@media (max-width:560px){.combo-cards{grid-template-columns:1fr}.combo-card:last-child:nth-child(odd){grid-column:auto}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Qual a diferença entre o WhatsApp Business App e a WhatsApp API Oficial?", "acceptedAnswer": {"@type": "Answer", "text": "O app é gratuito e feito para poucos usuários num celular. A API Oficial da Meta é para empresas que precisam de escala: vários atendentes no mesmo número, chatbot, campanhas, relatórios e integração com CRM e ERP."}}, {"@type": "Question", "name": "Meu número pode ser banido usando a Neppo?", "acceptedAnswer": {"@type": "Answer", "text": "Não por usar a plataforma. A Neppo é parceira oficial da Meta e opera só com a API Oficial, dentro dos termos do WhatsApp. O risco de banimento existe em ferramentas que acessam o WhatsApp de forma não oficial."}}, {"@type": "Question", "name": "Posso enviar mensagens em massa pelo WhatsApp?", "acceptedAnswer": {"@type": "Answer", "text": "Sim, pela API Oficial e com modelos de mensagem aprovados pela Meta, para contatos que aceitaram receber mensagens da sua empresa. A Neppo ajuda a montar os modelos e a segmentar a base."}}, {"@type": "Question", "name": "Quanto tempo leva para ativar a API Oficial?", "acceptedAnswer": {"@type": "Answer", "text": "A verificação do número e a aprovação da Meta costumam levar de 24 a 72 horas úteis. Depois disso, o time de implantação da Neppo configura filas, equipes e chatbot com você."}}, {"@type": "Question", "name": "O WhatsApp API Oficial tem custo por mensagem?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. A Meta cobra pelas mensagens de modelo enviadas pela empresa, com valores diferentes para marketing, utilidade e autenticação. A tabela é da própria Meta e pode mudar; a Neppo faz a simulação para o seu volume."}}, {"@type": "Question", "name": "Com quais CRMs e ERPs a Neppo integra?", "acceptedAnswer": {"@type": "Answer", "text": "Tem integração nativa com o Sankhya e o Ploomes e uma API aberta para conectar outros sistemas. Veja as integrações."}}]}</script>
 </head>
@@ -403,37 +423,37 @@ body.show-notes .anno{display:block}
           <div class="mega-grid" style="grid-template-columns:1fr 1.3fr 1fr 1.1fr">
             <div>
               <h5>Canais</h5>
-              <a class="mi" href="page-api-whatsapp.html" aria-current="page"><span class="tile sm brand ic-whatsapp" aria-hidden="true"></span><b>WhatsApp API Oficial</b></a>
-              <a class="mi" href="page-instagram.html"><span class="tile sm brand ic-instagram" aria-hidden="true"></span><b>Instagram</b></a>
-              <a class="mi" href="page-facebook-messenger.html"><span class="tile sm brand ic-messenger" aria-hidden="true"></span><b>Facebook Messenger</b></a>
-              <a class="mi" href="page-telegram.html"><span class="tile sm brand ic-telegram" aria-hidden="true"></span><b>Telegram</b></a>
-              <a class="mi" href="page-email.html"><span class="tile sm brand ic-mail" aria-hidden="true"></span><b>E-mail</b></a>
-              <a class="mi" href="page-sms.html"><span class="tile sm brand ic-sms" aria-hidden="true"></span><b>SMS</b></a>
-              <a class="mi" href="page-webchat.html"><span class="tile sm brand ic-webchat" aria-hidden="true"></span><b>Web Chat</b></a>
+              <a class="mi" href="page-api-whatsapp.html" aria-current="page"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-whatsapp"/></svg></span><b>WhatsApp API Oficial</b></a>
+              <a class="mi" href="page-instagram.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-instagram"/></svg></span><b>Instagram</b></a>
+              <a class="mi" href="page-facebook-messenger.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-messenger"/></svg></span><b>Facebook Messenger</b></a>
+              <a class="mi" href="page-telegram.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-telegram"/></svg></span><b>Telegram</b></a>
+              <a class="mi" href="page-email.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-mail"/></svg></span><b>E-mail</b></a>
+              <a class="mi" href="page-sms.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-sms"/></svg></span><b>SMS</b></a>
+              <a class="mi" href="page-webchat.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-webchat"/></svg></span><b>Web Chat</b></a>
             </div>
             <div>
               <h5>Produtos</h5>
-              <a class="mi" href="page-omnichannel.html"><span class="tile sm brand ic-omni" aria-hidden="true"></span><span><b>Omnichannel</b><small>Todos os canais numa só tela</small></span></a>
-              <a class="mi" href="page-chatbot.html"><span class="tile sm brand ic-bot" aria-hidden="true"></span><span><b>Chatbot</b><small>Atendimento automático</small></span></a>
-              <a class="mi" href="page-neppo-ia.html"><span class="tile sm brand ic-ia" aria-hidden="true"></span><span><b>Neppo IA</b><small>IA que atende e qualifica leads</small></span></a>
-              <a class="mi" href="page-whatsapp-coex.html"><span class="tile sm solid"><svg class="ico" aria-hidden="true"><use href="#i-apps"/></svg></span><span><b>WhatsApp CoEx</b><small>WhatsApp Business e API no mesmo número</small></span></a>
-              <a class="mi" href="page-neppo-voz.html"><span class="tile sm brand ic-voz" aria-hidden="true"></span><span><b>Neppo Voz</b><small>Telefonia em nuvem, VoIP e PABX</small></span></a>
-              <a class="mi" href="page-neppo-ticket.html"><span class="tile sm brand ic-ticket" aria-hidden="true"></span><span><b>Neppo Ticket</b><small>Tickets dentro do atendimento</small></span></a>
-              <a class="mi" href="page-chat-interno.html"><span class="tile sm brand ic-team" aria-hidden="true"></span><span><b>Chat Interno</b><small>Conversa entre as equipes</small></span></a>
-              <a class="mi" href="page-chat-embarcado.html"><span class="tile sm solid"><svg class="ico"><use href="#i-embed"/></svg></span><span><b>Chat Embarcado</b><small>O chat da Neppo dentro do seu sistema</small></span></a>
+              <a class="mi" href="page-omnichannel.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-omni"/></svg></span><span><b>Omnichannel</b><small>Todos os canais numa só tela</small></span></a>
+              <a class="mi" href="page-chatbot.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-bot"/></svg></span><span><b>Chatbot</b><small>Atendimento automático</small></span></a>
+              <a class="mi" href="page-neppo-ia.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-ia"/></svg></span><span><b>Neppo IA</b><small>IA que atende e qualifica leads</small></span></a>
+              <a class="mi" href="page-whatsapp-coex.html"><span class="tile sm"><svg class="ico" aria-hidden="true"><use href="#i-apps"/></svg></span><span><b>WhatsApp CoEx</b><small>WhatsApp Business e API no mesmo número</small></span></a>
+              <a class="mi" href="page-neppo-voz.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-voz"/></svg></span><span><b>Neppo Voz</b><small>Telefonia em nuvem, VoIP e PABX</small></span></a>
+              <a class="mi" href="page-neppo-ticket.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-ticket"/></svg></span><span><b>Neppo Ticket</b><small>Tickets dentro do atendimento</small></span></a>
+              <a class="mi" href="page-chat-interno.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-team"/></svg></span><span><b>Chat Interno</b><small>Conversa entre as equipes</small></span></a>
+              <a class="mi" href="page-chat-embarcado.html"><span class="tile sm"><svg class="ico"><use href="#i-embed"/></svg></span><span><b>Chat Embarcado</b><small>O chat da Neppo dentro do seu sistema</small></span></a>
             </div>
             <div>
               <h5>Segmentos</h5>
-              <a class="mi" href="page-saude.html"><span class="tile sm brand ic-health" aria-hidden="true"></span><b>Saúde</b></a>
-              <a class="mi" href="page-varejo.html"><span class="tile sm brand ic-retail" aria-hidden="true"></span><b>Varejo</b></a>
-              <a class="mi" href="page-bens-de-consumo.html"><span class="tile sm brand ic-box" aria-hidden="true"></span><b>Bens de consumo</b></a>
-              <a class="mi" href="page-servicos-financeiros.html"><span class="tile sm brand ic-finance" aria-hidden="true"></span><b>Serviços financeiros</b></a>
-              <a class="mi" href="page-servicos.html"><span class="tile sm brand ic-services" aria-hidden="true"></span><b>Serviços</b></a>
+              <a class="mi" href="page-saude.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-health"/></svg></span><b>Saúde</b></a>
+              <a class="mi" href="page-varejo.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-retail"/></svg></span><b>Varejo</b></a>
+              <a class="mi" href="page-bens-de-consumo.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-box"/></svg></span><b>Bens de consumo</b></a>
+              <a class="mi" href="page-servicos-financeiros.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-finance"/></svg></span><b>Serviços financeiros</b></a>
+              <a class="mi" href="page-servicos.html"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-services"/></svg></span><b>Serviços</b></a>
             </div>
             <div>
               <h5>Casos de uso</h5>
-              <a class="mi" href="#" data-fora-do-prototipo><span class="tile sm solid"><svg class="ico"><use href="#i-cart"/></svg></span><span><b>Venda digital</b><small>Catálogo, proposta e pagamento pelo WhatsApp</small></span></a>
-              <a class="mi" href="page-regua-de-cobranca.html"><span class="tile sm solid"><svg class="ico"><use href="#i-receipt"/></svg></span><span><b>Régua de cobrança</b><small>Cobrança automática pelo WhatsApp</small></span></a>
+              <a class="mi" href="#" data-fora-do-prototipo><span class="tile sm"><svg class="ico"><use href="#i-cart"/></svg></span><span><b>Venda digital</b><small>Catálogo, proposta e pagamento pelo WhatsApp</small></span></a>
+              <a class="mi" href="page-regua-de-cobranca.html"><span class="tile sm"><svg class="ico"><use href="#i-receipt"/></svg></span><span><b>Régua de cobrança</b><small>Cobrança automática pelo WhatsApp</small></span></a>
             </div>
           </div>
           <div class="mega-foot"><a class="tlink" href="page-solucoes.html">Ver todas as soluções <svg class="ico"><use href="#i-arrow"/></svg></a><span>Não sabe por onde começar? <a class="tlink" href="page-demo.html">Ver demonstração <svg class="ico"><use href="#i-arrow"/></svg></a></span></div>
@@ -446,10 +466,10 @@ body.show-notes .anno{display:block}
           <div class="mega-grid" style="grid-template-columns:1.4fr 1fr">
             <div>
               <h5>Integrações</h5>
-              <a class="mi" href="page-integracoes.html#sankhya"><span class="tile sm brand ic-sankhya" aria-hidden="true"></span><span><b>Sankhya</b><small>ERP · cobrança, venda digital e boletos</small></span></a>
-              <a class="mi" href="page-integracoes.html#ploomes"><span class="tile sm brand ic-ploomes" aria-hidden="true"></span><span><b>Ploomes</b><small>CRM · conversas registradas no CRM</small></span></a>
-              <a class="mi" href="page-integracoes.html#godeep"><span class="tile sm brand ic-godeep" aria-hidden="true"></span><span><b>GoDeep</b><small>Plataforma da Neppo para clientes GoDeep</small></span></a>
-              <a class="mi" href="page-integracoes.html#api"><span class="tile sm solid"><svg class="ico"><use href="#i-plug"/></svg></span><span><b>API aberta</b><small>Conecte ERP, CRM ou sistema próprio</small></span></a>
+              <a class="mi" href="page-integracoes.html#sankhya"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-plug"/></svg></span><span><b>Sankhya</b><small>ERP · cobrança, venda digital e boletos</small></span></a>
+              <a class="mi" href="page-integracoes.html#ploomes"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-plug"/></svg></span><span><b>Ploomes</b><small>CRM · conversas registradas no CRM</small></span></a>
+              <a class="mi" href="page-integracoes.html#godeep"><span class="tile sm" aria-hidden="true"><svg class="ico"><use href="#i-plug"/></svg></span><span><b>GoDeep</b><small>Plataforma da Neppo para clientes GoDeep</small></span></a>
+              <a class="mi" href="page-integracoes.html#api"><span class="tile sm"><svg class="ico"><use href="#i-plug"/></svg></span><span><b>API aberta</b><small>Conecte ERP, CRM ou sistema próprio</small></span></a>
             </div>
             <div>
               <h5>Para parceiros</h5>
@@ -539,7 +559,7 @@ body.show-notes .anno{display:block}
             <a href="page-solucoes.html#canais">Canais</a><svg class="ico"><use href="#i-chev-r"/></svg>
             <span aria-current="page">WhatsApp API Oficial</span>
           </nav>
-          <span class="channel-chip"><span class="tile brand ic-whatsapp" aria-hidden="true"></span>Canal WhatsApp API Oficial</span>
+          <span class="channel-chip"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-whatsapp"/></svg></span>Canal WhatsApp API Oficial</span>
           <h1>WhatsApp API Oficial para <span class="hl">atender e vender em escala</span></h1>
           <p class="lead">Toda a equipe atende pelo número oficial da empresa, com chatbot 24 horas, campanhas com modelos aprovados pela Meta e integração com o seu CRM ou ERP.</p>
           <div class="btn-row">
@@ -556,11 +576,11 @@ body.show-notes .anno{display:block}
           <div class="inbox" role="img" aria-label="Tela da Neppo com conversas do WhatsApp API Oficial e o chatbot respondendo um cliente fora do horário comercial">
             <div class="list">
               <span class="t">WhatsApp · número oficial</span>
-              <div class="conv on"><span class="ch brand ic-whatsapp" aria-hidden="true"></span><span><b>Ana Souza</b><span>Chatbot · 23h14</span></span></div>
-              <div class="conv"><span class="ch brand ic-whatsapp" aria-hidden="true"></span><span><b>Carlos Mendes</b><span>Com atendente · Vendas</span></span></div>
-              <div class="conv"><span class="ch brand ic-whatsapp" aria-hidden="true"></span><span><b>Patrícia Alves</b><span>Campanha · respondeu</span></span></div>
-              <div class="conv"><span class="ch brand ic-whatsapp" aria-hidden="true"></span><span><b>Distribuidora Sol</b><span>Com atendente · Financeiro</span></span></div>
-              <div class="conv"><span class="ch brand ic-whatsapp" aria-hidden="true"></span><span><b>Lucas Martins</b><span>Chatbot · aguardando</span></span></div>
+              <div class="conv on"><span class="ch" aria-hidden="true"><svg class="ico"><use href="#i-whatsapp"/></svg></span><span><b>Ana Souza</b><span>Chatbot · 23h14</span></span></div>
+              <div class="conv"><span class="ch" aria-hidden="true"><svg class="ico"><use href="#i-whatsapp"/></svg></span><span><b>Carlos Mendes</b><span>Com atendente · Vendas</span></span></div>
+              <div class="conv"><span class="ch" aria-hidden="true"><svg class="ico"><use href="#i-whatsapp"/></svg></span><span><b>Patrícia Alves</b><span>Campanha · respondeu</span></span></div>
+              <div class="conv"><span class="ch" aria-hidden="true"><svg class="ico"><use href="#i-whatsapp"/></svg></span><span><b>Distribuidora Sol</b><span>Com atendente · Financeiro</span></span></div>
+              <div class="conv"><span class="ch" aria-hidden="true"><svg class="ico"><use href="#i-whatsapp"/></svg></span><span><b>Lucas Martins</b><span>Chatbot · aguardando</span></span></div>
             </div>
             <div class="chat">
               <div class="top"><b>Ana Souza</b><span class="tag-tg">WhatsApp API Oficial</span></div>
@@ -661,22 +681,24 @@ body.show-notes .anno{display:block}
     </div>
   </section>
 
-  <section class="sec white from-navy">
+  <section class="sec white from-navy" id="canais">
     <div class="container">
+      <div class="combo">
       <div class="sec-head">
         <p class="eyebrow">Funciona junto</p>
         <h2>O WhatsApp oficial conectado ao resto da Neppo</h2>
         <p class="lead">O mesmo número, com os recursos que a sua operação precisa.</p>
+        <a class="tlink" href="page-solucoes.html">Ver todas as soluções <svg class="ico"><use href="#i-arrow"/></svg></a>
       </div>
-      <div class="chips">
-        <a href="page-chatbot.html"><span class="tile brand ic-bot" aria-hidden="true"></span>Chatbot</a>
-        <a href="page-neppo-ia.html"><span class="tile brand ic-ia" aria-hidden="true"></span>Neppo IA</a>
-        <a href="page-whatsapp-coex.html"><span class="tile solid"><svg class="ico"><use href="#i-apps"/></svg></span>WhatsApp CoEx</a>
-        <a href="page-neppo-voz.html"><span class="tile brand ic-voz" aria-hidden="true"></span>Neppo Voz</a>
-        <a href="page-regua-de-cobranca.html"><span class="tile solid"><svg class="ico"><use href="#i-receipt"/></svg></span>Régua de cobrança</a>
-        <a href="page-integracoes.html"><span class="tile solid"><svg class="ico"><use href="#i-plug"/></svg></span>Integrações</a>
+      <div class="combo-cards">
+        <a class="combo-card" href="page-chatbot.html"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-bot"/></svg></span><span class="tx"><b>Chatbot</b><small>Atendimento automático 24 horas.</small></span><svg class="ico go"><use href="#i-arrow"/></svg></a>
+        <a class="combo-card" href="page-neppo-ia.html"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-ia"/></svg></span><span class="tx"><b>Neppo IA</b><small>IA que atende clientes e qualifica leads.</small></span><svg class="ico go"><use href="#i-arrow"/></svg></a>
+        <a class="combo-card" href="page-whatsapp-coex.html"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-apps"/></svg></span><span class="tx"><b>WhatsApp CoEx</b><small>WhatsApp Business e API no mesmo número.</small></span><svg class="ico go"><use href="#i-arrow"/></svg></a>
+        <a class="combo-card" href="page-neppo-voz.html"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-voz"/></svg></span><span class="tx"><b>Neppo Voz</b><small>Telefonia em nuvem, VoIP e PABX.</small></span><svg class="ico go"><use href="#i-arrow"/></svg></a>
+        <a class="combo-card" href="page-regua-de-cobranca.html"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-receipt"/></svg></span><span class="tx"><b>Régua de cobrança</b><small>Cobrança automática pelo WhatsApp.</small></span><svg class="ico go"><use href="#i-arrow"/></svg></a>
+        <a class="combo-card" href="page-integracoes.html"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-plug"/></svg></span><span class="tx"><b>Integrações</b><small>Conecte ERP, CRM ou sistema próprio.</small></span><svg class="ico go"><use href="#i-arrow"/></svg></a>
       </div>
-      <div style="margin-top:28px"><a class="tlink" href="page-solucoes.html">Ver todas as soluções <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+      </div>
     </div>
   </section>
 

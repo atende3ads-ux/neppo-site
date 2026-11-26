@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Antes e depois · Neppo</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Comparação lado a lado dos ajustes pedidos pela Neppo nas páginas de Soluções.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600&family=Outfit:wght@400;500;600&display=swap">
+<style>
+:root{
+  --green:#00CD5D; --green-ink:#168247; --green-ink-hover:#0F6B39;
+  --navy:#252C3B; --text:#333333; --muted:#69756F;
+  --white:#FFFFFF; --mint:#EEF8EE; --hero-top:#F1FFEF; --gray:#F2F4F6;
+  --line:rgba(37,44,59,.08); --line-mint:#DFE9DF;
+  --shadow:0 8px 24px rgba(37,44,59,.07); --shadow-lg:0 24px 60px rgba(37,44,59,.13);
+  --f-display:'Unbounded',system-ui,sans-serif; --f-body:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,var(--hero-top),var(--white) 420px);color:var(--text);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;color:var(--navy);text-wrap:balance}
+:focus-visible{outline:2px solid var(--green-ink);outline-offset:3px;border-radius:8px}
+.ico{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1440px;margin-inline:auto;padding:0 max(16px,env(safe-area-inset-left)) 0 max(16px,env(safe-area-inset-right))}
+
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px}
+.top img{height:26px;width:auto}
+.top a{font-size:14px;font-weight:600;color:var(--green-ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+
+.intro{padding-block:28px 32px;display:grid;gap:14px;max-width:820px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green-ink)}
+.intro h1{font-size:clamp(28px,4vw,44px);line-height:1.12}
+.intro p{font-size:17px;color:var(--muted);max-width:64ch}
+
+.changes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:28px}
+.change{background:var(--white);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:20px 22px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:start}
+.change .n{grid-row:span 2;width:34px;height:34px;border-radius:50%;background:var(--green);color:var(--navy);display:grid;place-items:center;font-weight:600;font-size:15px}
+.change h2{font-size:17px;font-weight:500;line-height:1.3}
+.change p{font-size:14.5px;color:var(--muted)}
+
+.bar{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-block:1px solid var(--line);padding-block:12px}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.field{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--muted)}
+select{font:inherit;font-size:15px;font-weight:500;color:var(--navy);background:var(--white);border:1px solid var(--line-mint);border-radius:999px;padding:8px 36px 8px 14px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23168247' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:16px;cursor:pointer;max-width:100%}
+.seg{display:inline-flex;background:var(--gray);border-radius:999px;padding:3px}
+.seg button{font:inherit;font-size:14px;font-weight:500;color:var(--navy);background:none;border:0;border-radius:999px;padding:7px 14px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--white);box-shadow:0 1px 4px rgba(37,44,59,.12);color:var(--green-ink);font-weight:600}
+.seg button:disabled{opacity:.4;cursor:not-allowed}
+.sync{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--navy);cursor:pointer;margin-left:auto}
+.sync input{accent-color:var(--green-ink);width:16px;height:16px}
+
+.stage{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding-block:20px 48px}
+.panel{min-width:0}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:5px 12px;border-radius:999px}
+.tag.before{background:var(--gray);color:var(--muted)}
+.tag.after{background:var(--mint);color:var(--green-ink)}
+.tag i{width:8px;height:8px;border-radius:50%;background:currentColor}
+.panel-head a{font-size:13px;color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.panel-head a:hover{color:var(--green-ink)}
+.frame{position:relative;height:min(76vh,760px);border-radius:18px;overflow:hidden;background:var(--white);border:1px solid var(--line);box-shadow:var(--shadow-lg)}
+.frame.after{outline:2px solid var(--green);outline-offset:-1px}
+.frame iframe{position:absolute;top:0;left:0;border:0;transform-origin:0 0;background:var(--white)}
+.frame.mob{max-width:420px;margin-inline:auto}
+.note{font-size:13.5px;color:var(--muted);padding-bottom:40px}
+
+@media (max-width:900px){
+  .changes{grid-template-columns:1fr}
+  .stage{grid-template-columns:1fr}
+  .frame{height:68vh}
+  .sync{margin-left:0}
+  .bar{position:static}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-open" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+</svg>
+
+<div class="wrap">
+  <header class="top">
+    <img src="assets/neppo-logo-nova.png" alt="Neppo" width="113" height="26">
+    <a href="validacao.html"><svg class="ico"><use href="#i-back"/></svg>Voltar para a lista</a>
+  </header>
+
+  <section class="intro">
+    <p class="eyebrow">Ajustes da validação · 26/11/2026</p>
+    <h1>Antes e depois das páginas de Soluções</h1>
+    <p>Aplicamos os dois pedidos da validação nas 21 páginas. Escolha uma página e compare a versão anterior com a nova, lado a lado.</p>
+  </section>
+
+  <div class="changes">
+    <div class="change"><span class="n">1</span><h2>Ícones numa cor só</h2><p>Os ícones de canais e produtos (Instagram, Facebook, e-mail etc.) deixaram de ser coloridos. Agora todos seguem o mesmo traço, em verde Neppo, no menu, nos cards e nas telas de exemplo.</p></div>
+    <div class="change"><span class="n">2</span><h2>Seção de canais com cards maiores</h2><p>A chamada ficou à esquerda e os produtos foram para cards à direita, com uma linha de descrição em cada um. A seção agora ocupa a largura toda.</p></div>
+  </div>
+</div>
+
+<div class="bar">
+  <div class="wrap">
+    <label class="field">Página
+      <select id="page" aria-label="Página para comparar"></select>
+    </label>
+    <div class="seg" role="group" aria-label="Parte da página">
+      <button type="button" data-view="canais">Seção de canais</button>
+      <button type="button" data-view="topo">Topo</button>
+      <button type="button" data-view="menu">Menu aberto</button>
+    </div>
+    <div class="seg" role="group" aria-label="Tamanho da tela">
+      <button type="button" data-size="desk">Computador</button>
+      <button type="button" data-size="mob">Celular</button>
+    </div>
+    <label class="sync"><input type="checkbox" id="sync" checked>Rolar as duas juntas</label>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="stage">
+    <div class="panel">
+      <div class="panel-head"><span class="tag before"><i></i>Antes</span><a id="open-before" target="_blank" rel="noopener">Abrir <svg class="ico"><use href="#i-open"/></svg></a></div>
+      <div class="frame" id="f-before"><iframe id="before" title="Versão anterior da página" loading="eager"></iframe></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><span class="tag after"><i></i>Depois</span><a id="open-after" target="_blank" rel="noopener">Abrir <svg class="ico"><use href="#i-open"/></svg></a></div>
+      <div class="frame after" id="f-after"><iframe id="after" title="Versão nova da página" loading="eager"></iframe></div>
+    </div>
+  </div>
+  <p class="note">As páginas de segmento (Saúde, Varejo, Bens de consumo, Serviços financeiros e Serviços) não têm a seção de canais. Nelas, a mudança está nos ícones do menu e dos cards de produtos.</p>
+</div>
+
+<script>
+const PAGES = [
+  ['page-api-whatsapp-novo.html','WhatsApp API Oficial',1],
+  ['page-facebook-messenger.html','Facebook Messenger',1],
+  ['page-instagram.html','Instagram',1],
+  ['page-email.html','E-mail',1],
+  ['page-sms.html','SMS',1],
+  ['page-webchat.html','Web Chat',1],
+  ['page-omnichannel.html','Omnichannel',1],
+  ['page-neppo-ia.html','Neppo IA',1],
+  ['page-whatsapp-coex-novo.html','WhatsApp CoEx',1],
+  ['page-neppo-grow.html','Neppo Grow',1],
+  ['page-chatbot.html','Chatbot',1],
+  ['page-neppo-voz.html','Neppo Voz',1],
+  ['page-neppo-ticket.html','Neppo Ticket',1],
+  ['page-chat-interno.html','Chat Interno',1],
+  ['page-chat-embarcado.html','Chat Embarcado',1],
+  ['page-regua-de-cobranca.html','Régua de cobrança',1],
+  ['page-saude.html','Saúde',0],
+  ['page-varejo.html','Varejo',0],
+  ['page-bens-de-consumo.html','Bens de consumo',0],
+  ['page-servicos-financeiros.html','Serviços financeiros',0],
+  ['page-servicos.html','Serviços',0]
+];
+const V = '20261126';
+const $ = id => document.getElementById(id);
+const sel = $('page'), fb = $('before'), fa = $('after');
+const viewBtns = [...document.querySelectorAll('[data-view]')];
+const sizeBtns = [...document.querySelectorAll('[data-size]')];
+
+PAGES.forEach(([f, n, c]) => sel.add(new Option(n + (c ? '' : ' · segmento'), f)));
+
+const q = new URLSearchParams(location.search);
+const state = {
+  page: PAGES.some(p => p[0] === q.get('p')) ? q.get('p') : PAGES[0][0],
+  view: ['canais', 'topo', 'menu'].includes(q.get('v')) ? q.get('v') : 'canais',
+  size: q.get('t') === 'mob' ? 'mob' : 'desk'
+};
+const hasCanais = () => PAGES.find(p => p[0] === state.page)[2] === 1;
+
+function fit() {
+  const W = state.size === 'mob' ? 390 : 1280;
+  [['f-before', fb], ['f-after', fa]].forEach(([id, fr]) => {
+    const box = $(id);
+    box.classList.toggle('mob', state.size === 'mob');
+    const s = box.clientWidth / W;
+    fr.style.width = W + 'px';
+    fr.style.height = (box.clientHeight / s) + 'px';
+    fr.style.transform = `scale(${s})`;
+  });
+}
+
+let loaded = 0;
+function prepare(fr) {
+  const win = fr.contentWindow, doc = fr.contentDocument;
+  if (!doc) return;
+  if (state.view === 'canais') {
+    const el = doc.getElementById('canais');
+    if (el) win.scrollTo(0, el.getBoundingClientRect().top + win.scrollY - 90);
+  } else if (state.view === 'menu') {
+    win.scrollTo(0, 0);
+    const btn = doc.querySelector('[aria-controls="mega-solucoes"]');
+    const mob = doc.querySelector('.menu-toggle');
+    if (state.size === 'desk' && btn) btn.click();
+    else if (mob) mob.click();
+  } else {
+    win.scrollTo(0, 0);
+  }
+  win.addEventListener('scroll', () => mirror(fr), { passive: true });
+}
+
+let lock = null;
+function mirror(src) {
+  if (!$('sync').checked || lock === src) return;
+  const other = src === fb ? fa : fb;
+  try {
+    lock = other;
+    other.contentWindow.scrollTo(0, src.contentWindow.scrollY);
+    requestAnimationFrame(() => requestAnimationFrame(() => { lock = null; }));
+  } catch (e) { lock = null; }
+}
+
+function render() {
+  if (!hasCanais() && state.view === 'canais') state.view = 'topo';
+  sel.value = state.page;
+  viewBtns.forEach(b => {
+    b.setAttribute('aria-pressed', b.dataset.view === state.view);
+    b.disabled = b.dataset.view === 'canais' && !hasCanais();
+  });
+  sizeBtns.forEach(b => b.setAttribute('aria-pressed', b.dataset.size === state.size));
+  const before = 'antes/' + state.page, after = state.page;
+  $('open-before').href = before; $('open-after').href = after;
+  fit();
+  loaded = 0;
+  fb.src = before + '?v=' + V; fa.src = after + '?v=' + V;
+  const p = new URLSearchParams({ p: state.page, v: state.view });
+  if (state.size === 'mob') p.set('t', 'mob');
+  history.replaceState(null, '', '?' + p);
+}
+
+[fb, fa].forEach(fr => fr.addEventListener('load', () => setTimeout(() => prepare(fr), 250)));
+sel.addEventListener('change', () => { state.page = sel.value; render(); });
+viewBtns.forEach(b => b.addEventListener('click', () => { state.view = b.dataset.view; render(); }));
+sizeBtns.forEach(b => b.addEventListener('click', () => { state.size = b.dataset.size; render(); }));
+let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(fit, 120); });
+render();
+</script>
+</body>
+</html>

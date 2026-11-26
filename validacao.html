@@ -353,6 +353,10 @@ body.show-notes .anno{display:block}
 .val-foot img{height:28px;width:auto}
 @media (max-width:1000px){.plist{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.plist{grid-template-columns:1fr}.proto-tag{font-size:12.5px;padding:8px 12px}}
+
+/* Ícones monocromáticos (pedido Neppo 26/11) */
+.tile{color:var(--green-ink)}
+.tile.solid{background:var(--mint)!important;color:var(--green-ink)!important}
 </style>
 </head>
 <body>
@@ -432,7 +436,7 @@ body.show-notes .anno{display:block}
         <a href="#validar"><b>21</b> para validar</a>
         <a href="#aprovadas"><b>3</b> aprovadas · em implementação</a>
         <a href="#publicadas"><b>14</b> já no site</a>
-        <a href="#outras"><b>5</b> outros protótipos</a>
+        <a href="#outras"><b>6</b> outros protótipos</a>
       </nav>
       <p class="val-note">Cada página abre em uma nova aba. Dentro dos protótipos, o menu e os botões levam só a páginas desta lista. O que ainda não tem protótipo mostra um aviso.</p>
     </div>
@@ -447,36 +451,36 @@ body.show-notes .anno{display:block}
       </div>
       <p class="eyebrow grp">Canais</p>
       <div class="plist">
-        <a class="plink" href="page-api-whatsapp-novo.html" target="_blank" rel="noopener"><span class="tile brand ic-whatsapp" aria-hidden="true"></span><span class="tx"><b>WhatsApp API Oficial</b><small>Canal · nova versão no modelo</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-facebook-messenger.html" target="_blank" rel="noopener"><span class="tile brand ic-messenger" aria-hidden="true"></span><span class="tx"><b>Facebook Messenger</b><small>Canal</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-instagram.html" target="_blank" rel="noopener"><span class="tile brand ic-instagram" aria-hidden="true"></span><span class="tx"><b>Instagram</b><small>Canal</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-email.html" target="_blank" rel="noopener"><span class="tile brand ic-mail" aria-hidden="true"></span><span class="tx"><b>E-mail</b><small>Canal</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-sms.html" target="_blank" rel="noopener"><span class="tile brand ic-sms" aria-hidden="true"></span><span class="tx"><b>SMS</b><small>Canal</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-webchat.html" target="_blank" rel="noopener"><span class="tile brand ic-webchat" aria-hidden="true"></span><span class="tx"><b>Web Chat</b><small>Canal</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-api-whatsapp-novo.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-whatsapp"/></svg></span><span class="tx"><b>WhatsApp API Oficial</b><small>Canal · nova versão no modelo</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-facebook-messenger.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-messenger"/></svg></span><span class="tx"><b>Facebook Messenger</b><small>Canal</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-instagram.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-instagram"/></svg></span><span class="tx"><b>Instagram</b><small>Canal</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-email.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-mail"/></svg></span><span class="tx"><b>E-mail</b><small>Canal</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-sms.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-sms"/></svg></span><span class="tx"><b>SMS</b><small>Canal</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-webchat.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-webchat"/></svg></span><span class="tx"><b>Web Chat</b><small>Canal</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
       </div>
       <p class="eyebrow grp">Produtos</p>
       <div class="plist">
-        <a class="plink" href="page-omnichannel.html" target="_blank" rel="noopener"><span class="tile brand ic-omni" aria-hidden="true"></span><span class="tx"><b>Omnichannel</b><small>Produto · nova</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-neppo-ia.html" target="_blank" rel="noopener"><span class="tile brand ic-ia" aria-hidden="true"></span><span class="tx"><b>Neppo IA</b><small>Produto · nova</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-whatsapp-coex-novo.html" target="_blank" rel="noopener"><span class="tile solid"><svg class="ico"><use href="#i-apps"/></svg></span><span class="tx"><b>WhatsApp CoEx</b><small>Produto · nova versão no modelo</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-neppo-grow.html" target="_blank" rel="noopener"><span class="tile brand ic-grow" aria-hidden="true"></span><span class="tx"><b>Neppo Grow</b><small>Produto · nova, fora do menu</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-chatbot.html" target="_blank" rel="noopener"><span class="tile brand ic-bot" aria-hidden="true"></span><span class="tx"><b>Chatbot</b><small>Produto</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-neppo-voz.html" target="_blank" rel="noopener"><span class="tile brand ic-voz" aria-hidden="true"></span><span class="tx"><b>Neppo Voz</b><small>Produto</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-neppo-ticket.html" target="_blank" rel="noopener"><span class="tile brand ic-ticket" aria-hidden="true"></span><span class="tx"><b>Neppo Ticket</b><small>Produto</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-chat-interno.html" target="_blank" rel="noopener"><span class="tile brand ic-team" aria-hidden="true"></span><span class="tx"><b>Chat Interno</b><small>Produto</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-chat-embarcado.html" target="_blank" rel="noopener"><span class="tile solid"><svg class="ico"><use href="#i-embed"/></svg></span><span class="tx"><b>Chat Embarcado</b><small>Produto</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-omnichannel.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-omni"/></svg></span><span class="tx"><b>Omnichannel</b><small>Produto · nova</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-neppo-ia.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-ia"/></svg></span><span class="tx"><b>Neppo IA</b><small>Produto · nova</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-whatsapp-coex-novo.html" target="_blank" rel="noopener"><span class="tile"><svg class="ico"><use href="#i-apps"/></svg></span><span class="tx"><b>WhatsApp CoEx</b><small>Produto · nova versão no modelo</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-neppo-grow.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-grow"/></svg></span><span class="tx"><b>Neppo Grow</b><small>Produto · nova, fora do menu</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-chatbot.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-bot"/></svg></span><span class="tx"><b>Chatbot</b><small>Produto</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-neppo-voz.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-voz"/></svg></span><span class="tx"><b>Neppo Voz</b><small>Produto</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-neppo-ticket.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-ticket"/></svg></span><span class="tx"><b>Neppo Ticket</b><small>Produto</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-chat-interno.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-team"/></svg></span><span class="tx"><b>Chat Interno</b><small>Produto</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-chat-embarcado.html" target="_blank" rel="noopener"><span class="tile"><svg class="ico"><use href="#i-embed"/></svg></span><span class="tx"><b>Chat Embarcado</b><small>Produto</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
       </div>
       <p class="eyebrow grp">Caso de uso</p>
       <div class="plist">
-        <a class="plink" href="page-regua-de-cobranca.html" target="_blank" rel="noopener"><span class="tile solid"><svg class="ico"><use href="#i-receipt"/></svg></span><span class="tx"><b>Régua de cobrança</b><small>Caso de uso</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-regua-de-cobranca.html" target="_blank" rel="noopener"><span class="tile"><svg class="ico"><use href="#i-receipt"/></svg></span><span class="tx"><b>Régua de cobrança</b><small>Caso de uso</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
       </div>
       <p class="eyebrow grp">Segmentos</p>
       <div class="plist">
-        <a class="plink" href="page-saude.html" target="_blank" rel="noopener"><span class="tile brand ic-health" aria-hidden="true"></span><span class="tx"><b>Saúde</b><small>Segmento</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-varejo.html" target="_blank" rel="noopener"><span class="tile brand ic-retail" aria-hidden="true"></span><span class="tx"><b>Varejo</b><small>Segmento</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-bens-de-consumo.html" target="_blank" rel="noopener"><span class="tile brand ic-box" aria-hidden="true"></span><span class="tx"><b>Bens de consumo</b><small>Segmento</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-servicos-financeiros.html" target="_blank" rel="noopener"><span class="tile brand ic-finance" aria-hidden="true"></span><span class="tx"><b>Serviços financeiros</b><small>Segmento</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-servicos.html" target="_blank" rel="noopener"><span class="tile brand ic-services" aria-hidden="true"></span><span class="tx"><b>Serviços</b><small>Segmento</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-saude.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-health"/></svg></span><span class="tx"><b>Saúde</b><small>Segmento</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-varejo.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-retail"/></svg></span><span class="tx"><b>Varejo</b><small>Segmento</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-bens-de-consumo.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-box"/></svg></span><span class="tx"><b>Bens de consumo</b><small>Segmento</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-servicos-financeiros.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-finance"/></svg></span><span class="tx"><b>Serviços financeiros</b><small>Segmento</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-servicos.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-services"/></svg></span><span class="tx"><b>Serviços</b><small>Segmento</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
   </section>
@@ -490,8 +494,8 @@ body.show-notes .anno{display:block}
       </div>
       <div class="plist">
         <a class="plink" href="page-solucoes.html" target="_blank" rel="noopener"><span class="tile"><svg class="ico"><use href="#i-omni"/></svg></span><span class="tx"><b>Soluções</b><small>Visão geral de canais, produtos, segmentos e casos de uso</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-telegram.html" target="_blank" rel="noopener"><span class="tile brand ic-telegram" aria-hidden="true"></span><span class="tx"><b>Telegram</b><small>Canal · modelo das páginas de Solução</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-integracoes.html" target="_blank" rel="noopener"><span class="tile solid"><svg class="ico"><use href="#i-plug"/></svg></span><span class="tx"><b>Integrações</b><small>Sankhya, Ploomes, GoDeep e API aberta</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-telegram.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-telegram"/></svg></span><span class="tx"><b>Telegram</b><small>Canal · modelo das páginas de Solução</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-integracoes.html" target="_blank" rel="noopener"><span class="tile"><svg class="ico"><use href="#i-plug"/></svg></span><span class="tx"><b>Integrações</b><small>Sankhya, Ploomes, GoDeep e API aberta</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
   </section>
@@ -507,8 +511,8 @@ body.show-notes .anno{display:block}
       <div class="plist">
         <a class="plink" href="index.html" target="_blank" rel="noopener"><span class="tile"><svg class="ico"><use href="#i-store"/></svg></span><span class="tx"><b>Home</b><small>Página inicial</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
         <a class="plink" href="page-planos-e-precos.html" target="_blank" rel="noopener"><span class="tile"><svg class="ico"><use href="#i-finance"/></svg></span><span class="tx"><b>Planos e preços</b><small>Planos e módulos adicionais</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-api-whatsapp.html" target="_blank" rel="noopener"><span class="tile brand ic-whatsapp" aria-hidden="true"></span><span class="tx"><b>WhatsApp API Oficial</b><small>Canal</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
-        <a class="plink" href="page-whatsapp-coex.html" target="_blank" rel="noopener"><span class="tile solid"><svg class="ico"><use href="#i-apps"/></svg></span><span class="tx"><b>WhatsApp CoEx</b><small>Produto</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-api-whatsapp.html" target="_blank" rel="noopener"><span class="tile" aria-hidden="true"><svg class="ico"><use href="#i-whatsapp"/></svg></span><span class="tx"><b>WhatsApp API Oficial</b><small>Canal</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="plink" href="page-whatsapp-coex.html" target="_blank" rel="noopener"><span class="tile"><svg class="ico"><use href="#i-apps"/></svg></span><span class="tx"><b>WhatsApp CoEx</b><small>Produto</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
         <a class="plink" href="page-demo.html" target="_blank" rel="noopener"><span class="tile"><svg class="ico"><use href="#i-webchat"/></svg></span><span class="tx"><b>Demo</b><small>Demonstrações da plataforma</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
         <a class="plink" href="page-casos-de-sucesso.html" target="_blank" rel="noopener"><span class="tile"><svg class="ico"><use href="#i-trophy"/></svg></span><span class="tx"><b>Casos de sucesso</b><small>Lista dos cases</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
       </div>
@@ -529,11 +533,12 @@ body.show-notes .anno{display:block}
   <section class="sec mint from-white" id="outras">
     <div class="container">
       <div class="sec-head">
-        <span class="status s-outras">Outros protótipos · 5 páginas</span>
+        <span class="status s-outras">Outros protótipos · 6 páginas</span>
         <h2>Outros protótipos</h2>
         <p class="lead">Páginas de apoio e projetos em andamento.</p>
       </div>
       <div class="plist">
+        <a class="plink" href="comparacao.html" target="_blank" rel="noopener"><span class="tile"><svg class="ico"><use href="#i-history"/></svg></span><span class="tx"><b>Antes e depois</b><small>Ajustes de ícones e da seção de canais, lado a lado</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
         <a class="plink" href="guia-visual.html" target="_blank" rel="noopener"><span class="tile"><svg class="ico"><use href="#i-apps"/></svg></span><span class="tx"><b>Guia visual</b><small>Tipografia, cores, botões, ícones e menu do site</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
         <a class="plink" href="page-demonstracao.html" target="_blank" rel="noopener"><span class="tile"><svg class="ico"><use href="#i-headset"/></svg></span><span class="tx"><b>Demonstração gratuita</b><small>Formulário para falar com um especialista</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
         <a class="plink" href="page-obrigado-experiencia.html" target="_blank" rel="noopener"><span class="tile"><svg class="ico"><use href="#i-check"/></svg></span><span class="tx"><b>Obrigado</b><small>Página depois do envio do formulário</small></span><svg class="ico"><use href="#i-arrow"/></svg></a>
@@ -548,7 +553,7 @@ body.show-notes .anno{display:block}
   <div class="container">
     <div class="val-foot">
       <img src="assets/neppo-logo-nova.png" alt="Neppo" width="122" height="28">
-      <span>Protótipos preparados pela 3ADS para a Neppo · Lista atualizada em 18/11/2026</span>
+      <span>Protótipos preparados pela 3ADS para a Neppo · Lista atualizada em 26/11/2026</span>
     </div>
   </div>
 </footer>
